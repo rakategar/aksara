@@ -1,0 +1,10 @@
+.feature { position: absolute; inset: 0; z-index: 2; }
+.feature-school { left: 540px; top: -24px; width: 520px; z-index: 6; }
+.feature-panel { left: 230px; top: 200px; width: 1140px; height: 650px; z-index: 3; }
+.feature-content { position: absolute; left: 50px; top: 76px; width: 1028px; height: 518px; }
+.feature-title.ws { left: 535px; top: 110px; transform-origin: 50% 0; z-index: 7; }
+.feature-char-l { position: absolute; left: -70px; bottom: -14px; height: 560px; z-index: 4; pointer-events: none; }
+.feature-char-r { position: absolute; left: 1275px; bottom: -14px; height: 560px; z-index: 4; pointer-events: none; }
+.feature-nav-l { position: absolute; left: 40px; bottom: 18px; display: flex; gap: 16px; z-index: 9; }
+.feature-nav-r { position: absolute; right: 40px; bottom: 18px; display: flex; gap: 16px; z-index: 9; }
+.feature-indicator.ws { left: 655px; top: 790px; z-index: 8; }

@@ -1,0 +1,10 @@
+.cover { position: absolute; inset: 0; z-index: 2; }
+.cover-school { left: 530px; top: -22px; width: 540px; transform-origin: 50% 0; z-index: 6; }
+.cover-subtitle { position: absolute; left: 0; right: 0; top: 146px; text-align: center; font: 700 60px/1 var(--sj-font-display); color: #1F3F8F; -webkit-text-stroke: 10px #fff; paint-order: stroke fill; filter: drop-shadow(0 4px 0 rgba(31,63,143,.35)); z-index: 7; }
+.cover-logo { position: absolute; left: 0; right: 0; top: 206px; margin: 0; display: flex; justify-content: center; gap: 2px; font: 700 176px/1 var(--sj-font-display); -webkit-text-stroke: 18px #fff; paint-order: stroke fill; filter: drop-shadow(0 8px 0 rgba(90,50,20,.38)); z-index: 7; }
+.cover-logo span { display: inline-block; }
+.cover-pita { position: absolute; left: 440px; top: 360px; width: 720px; z-index: 7; }
+.cover-badge { position: absolute; left: 660px; top: 540px; width: 280px; z-index: 8; }
+.cover-char-l { position: absolute; left: -70px; top: 286px; height: 640px; z-index: 5; pointer-events: none; }
+.cover-char-r { position: absolute; left: 1150px; top: 300px; height: 680px; z-index: 5; pointer-events: none; }
+.cover-menu { position: absolute; left: 239px; top: 716px; display: flex; gap: 14px; z-index: 10; }

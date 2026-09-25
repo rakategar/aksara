@@ -1,0 +1,21 @@
+.materi { position: absolute; inset: 0; overflow-x: hidden; overflow-y: auto; padding-right: 18px; box-sizing: border-box; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+.materi:focus-visible { outline: 4px solid #FFE14D; outline-offset: 4px; }
+.materi-h2 { margin: 0 0 10px; font: 700 36px/1.2 var(--sj-font-display); color: var(--sj-wood-700); }
+.materi-h3 { margin: 0 0 10px; font: 700 28px/1.2 var(--sj-font-display); color: var(--sj-wood-700); }
+.materi-p { margin: 0 0 14px; font: 600 22px/1.6 var(--sj-font-body); text-wrap: pretty; }
+.materi-inline-ak { font: 700 30px/1 var(--sj-font-aksara); }
+.materi-callout { display: flex; gap: 18px; align-items: flex-start; background: var(--sj-warning-100); border: 3px solid #F2C94C; border-radius: 22px; padding: 16px 20px; margin: 0 0 22px; }
+.materi-callout-ic { flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--sj-grad-btn-orange); color: #fff; display: grid; place-items: center; box-shadow: 0 3px 0 var(--sj-orange-700); }
+.materi-callout-h { font: 700 24px/1.3 var(--sj-font-display); color: var(--sj-orange-700); }
+.materi-callout p { margin: 4px 0 0; font: 600 20px/1.55 var(--sj-font-body); text-wrap: pretty; }
+.materi-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0 0 22px; }
+.materi-card { background: var(--sj-parchment-50); border: 3px solid var(--sj-parchment-300); border-radius: 22px; padding: 16px 20px; box-shadow: var(--sj-shadow-card); }
+.materi-card-h { font: 700 26px/1.3 var(--sj-font-display); }
+.materi-card p { margin: 4px 0 0; font: 600 20px/1.5 var(--sj-font-body); }
+.materi-rows { display: flex; flex-direction: column; gap: 10px; margin: 0 0 24px; }
+.materi-row { display: grid; grid-template-columns: 230px 250px 1fr; align-items: center; gap: 16px; background: var(--sj-parchment-50); border: 2px dashed var(--sj-parchment-500); border-radius: 18px; padding: 8px 18px; }
+.materi-row-a { font: 700 40px/1.4 var(--sj-font-aksara); }
+.materi-row-l { font: 700 24px/1.2 var(--sj-font-display); color: var(--sj-wood-700); }
+.materi-row-m { font: 600 20px/1.4 var(--sj-font-body); color: var(--sj-ink-600); }
+.materi-actions { display: flex; gap: 16px; padding-bottom: 8px; }
+.actbtn.materi-btn { padding: 12px 26px; font-size: 24px; }

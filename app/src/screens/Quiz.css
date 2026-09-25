@@ -1,0 +1,20 @@
+/* Dipakai Tebak Aksara & Evaluasi */
+.quiz { position: absolute; inset: 0; }
+.quiz-score { display: flex; align-items: center; gap: 6px; font: 700 22px/1 var(--sj-font-display); color: var(--sj-orange-700); }
+.quiz-card { left: 0; top: 64px; }
+.quiz-q { font: 600 20px/1.2 var(--sj-font-display); color: var(--sj-ink-600); }
+.quiz-opts { position: absolute; left: 330px; top: 64px; right: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.quiz-fb { position: absolute; left: 330px; right: 0; top: 420px; height: 54px; display: flex; align-items: center; justify-content: center; gap: 10px; border-radius: 18px; font: 700 22px/1 var(--sj-font-display); }
+.quiz-done { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; text-align: center; }
+.quiz-done-h { font: 700 48px/1.1 var(--sj-font-display); color: var(--sj-wood-700); }
+.quiz-done-p { font: 600 24px/1.4 var(--sj-font-body); }
+.quiz-done-actions { display: flex; gap: 16px; margin-top: 6px; }
+.actbtn.quiz-done-btn { padding: 14px 28px; font-size: 24px; }
+/* Evaluasi */
+.ev-stim-l { font: 700 110px/1 var(--sj-font-display); color: var(--sj-blue-700); }
+.ev-hint { font: 600 16px/1.2 var(--sj-font-body); color: var(--sj-ink-600); }
+.ev-opt-a { font: 400 84px/1.2 var(--sj-font-aksara); }
+.ev-opt-l { font: 700 56px/1 var(--sj-font-display); }
+.ev-bar { position: absolute; left: 330px; right: 0; top: 420px; height: 58px; display: flex; align-items: center; gap: 16px; }
+.ev-fb { flex: 1; height: 54px; display: flex; align-items: center; justify-content: center; border-radius: 18px; font: 700 21px/1.1 var(--sj-font-display); padding: 0 12px; text-align: center; }
+.actbtn.ev-btn { height: 56px; padding: 0 26px; font-size: 23px; }

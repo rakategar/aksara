@@ -1,0 +1,18 @@
+.tulis { position: absolute; inset: 0; }
+.tulis-label.ws { left: 0; top: -8px; }
+.tulis-card { left: 15px; top: 104px; }
+.tulis-arrow { position: absolute; left: 272px; top: 238px; filter: drop-shadow(0 3px 0 #B8650A); }
+.tulis-canvas-wrap { position: absolute; left: 346px; top: 0; width: 682px; height: 518px; display: flex; flex-direction: column; gap: 12px; }
+.tulis-board { position: relative; flex: 1; border: 4px solid var(--sj-parchment-300); border-radius: 28px; background-color: #FFFDF7; background-image: linear-gradient(#F1E2C2 1px, transparent 1px), linear-gradient(90deg, #F1E2C2 1px, transparent 1px); background-size: 40px 40px; background-position: -1px -1px; overflow: hidden; box-shadow: inset 0 2px 6px rgba(120,70,20,.12); }
+.tulis-guide { position: absolute; left: 0; right: 0; border-top: 3px dashed #E0B878; }
+.tulis-trace { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font: 400 300px/1 var(--sj-font-aksara); color: #3B1E0A; opacity: .12; pointer-events: none; }
+.tulis-board canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+.tulis-hint { position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font: 600 18px/1 var(--sj-font-body); color: var(--sj-ink-600); pointer-events: none; }
+.tulis-tools { display: flex; align-items: center; gap: 12px; height: 56px; }
+.actbtn.tool { gap: 8px; height: 52px; padding: 0 18px; border-radius: 16px; font-size: 20px; box-shadow: 0 4px 0 var(--sj-wood-700); }
+.actbtn.tool-danger { box-shadow: 0 4px 0 #A8281F; }
+.tulis-pens { display: flex; align-items: center; gap: 6px; margin-left: auto; background: var(--sj-parchment-50); border: 3px solid var(--sj-parchment-300); border-radius: 16px; padding: 4px 10px 4px 14px; height: 52px; box-sizing: border-box; }
+.tulis-pens > span { font: 600 16px/1 var(--sj-font-body); color: var(--sj-ink-600); margin-right: 4px; }
+.tulis-pen { position: relative; width: 40px; height: 40px; border-radius: 12px; border: 3px solid; display: grid; place-items: center; cursor: pointer; --hit: -10px -3px; }
+.tulis-pen > span { border-radius: 50%; background: var(--sj-ink-900); }
+.tulis-trace-btn { display: flex; align-items: center; gap: 8px; height: 52px; padding: 0 14px; border-radius: 16px; border: 3px solid var(--sj-blue-700); font: 600 18px/1 var(--sj-font-display); cursor: pointer; }

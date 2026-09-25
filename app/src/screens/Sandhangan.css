@@ -1,0 +1,11 @@
+.sandh { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(5, 1fr); grid-auto-rows: 250px; gap: 18px 19px; }
+.sandh-card { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px 10px; overflow: hidden; color: var(--sj-ink-900); background: var(--sj-parchment-50); border: 3px solid var(--sj-parchment-300); border-radius: 24px; box-shadow: var(--sj-shadow-card); cursor: pointer; transition: transform 200ms var(--sj-ease-bounce); }
+@media (hover: hover) { .sandh-card:hover { transform: translateY(-4px) scale(1.03); } }
+.sandh-card:active { transform: scale(.97); }
+.sandh-name { padding: 5px 14px 6px; border-radius: 12px; background: linear-gradient(180deg,#9A6BE0,#6A3DB8); color: #fff; font: 600 19px/1 var(--sj-font-display); box-shadow: 0 2px 0 #4B2690; white-space: nowrap; }
+.sandh-glyph { height: 92px; display: flex; align-items: center; font: 400 64px/1.2 var(--sj-font-aksara); color: var(--sj-ink-900); }
+.sandh-ex { font: 600 17px/1.2 var(--sj-font-body); color: var(--sj-ink-600); }
+.sandh-ex b { color: var(--sj-ink-900); }
+.sandh-word { margin-top: auto; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 14px; border: 2px dashed var(--sj-parchment-500); padding: 2px 4px 6px; }
+.sandh-word-a { font: 400 24px/1.5 var(--sj-font-aksara); color: var(--sj-ink-900); white-space: nowrap; }
+.sandh-word-l { font: 600 18px/1 var(--sj-font-display); color: var(--sj-wood-700); }

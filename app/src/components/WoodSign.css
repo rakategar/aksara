@@ -1,0 +1,16 @@
+.ws-school { position: absolute; }
+.ws { position: absolute; }
+.ws > img { width: 100%; height: 100%; display: block; }
+.ws-text { position: absolute; left: 0; right: 0; top: 26%; bottom: 16%; margin: 0; display: flex; align-items: center; justify-content: center; font-family: var(--sj-font-display); font-weight: 700; line-height: 1; color: #fff; paint-order: stroke fill; }
+/* judul halaman 530×180 */
+.ws-title { width: 530px; height: 180px; }
+.ws-title .ws-text { font-size: 44px; letter-spacing: .02em; -webkit-text-stroke: 8px var(--sj-wood-900); text-shadow: 0 4px 0 var(--sj-wood-900); }
+/* label latin (latihan menulis) 270×101 */
+.ws-label { width: 270px; height: 101px; }
+.ws-label .ws-text { font-size: 40px; -webkit-text-stroke: 7px var(--sj-wood-900); text-shadow: 0 3px 0 var(--sj-wood-900); }
+/* indikator halaman 290×108 */
+.ws-indicator { width: 290px; height: 108px; }
+.ws-indicator .ws-text { font-size: 34px; -webkit-text-stroke: 6px var(--sj-wood-900); text-shadow: 0 3px 0 var(--sj-wood-900); }
+/* judul modal 400×149 */
+.ws-modal { width: 400px; height: 149px; }
+.ws-modal .ws-text { font-size: 38px; -webkit-text-stroke: 7px var(--sj-wood-900); text-shadow: 0 3px 0 var(--sj-wood-900); }

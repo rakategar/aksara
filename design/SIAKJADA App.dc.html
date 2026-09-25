@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Noto+Sans+Javanese:wght@400;700&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<style>
+html,body{margin:0;height:100%;background:#0f2233;overflow:hidden}
+a{color:#1E7FD8}a:hover{color:#0E4E8F}
+button{font-family:inherit}
+button:focus-visible{outline:4px solid #FFE14D;outline-offset:4px}
+::-webkit-scrollbar{width:14px}::-webkit-scrollbar-track{background:#F3E2BE;border-radius:8px}::-webkit-scrollbar-thumb{background:#B98651;border-radius:8px;border:3px solid #F3E2BE}
+</style>
+</helmet>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="i-home" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5.5 10v9.5h5v-5.5h3v5.5h5V10"></path></g></symbol>
+<symbol id="i-left" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round"><path d="M20 12H5"></path><path d="M11 5l-7 7 7 7"></path></g></symbol>
+<symbol id="i-right" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round"><path d="M4 12h15"></path><path d="M13 5l7 7-7 7"></path></g></symbol>
+<symbol id="i-sound" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M3.5 9.5H7L12.5 5v14L7 14.5H3.5z" fill="currentColor"></path><path d="M16 9a4 4 0 0 1 0 6"></path><path d="M18.5 6.5a7.5 7.5 0 0 1 0 11"></path></g></symbol>
+<symbol id="i-mute" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M3.5 9.5H7L12.5 5v14L7 14.5H3.5z" fill="currentColor"></path><path d="M16 9.5l5 5M21 9.5l-5 5"></path></g></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"></path><path d="M12 6.5v13"></path></g></symbol>
+<symbol id="i-pencil" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M15.5 4.5l4 4L8 20H4v-4z"></path><path d="M13 7l4 4"></path></g></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"></path><path d="M12 14v3M8.5 20.5h7M9.5 17h5v3.5h-5z"></path></g></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></g></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"></path></g></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M8.8 9.2a3.3 3.3 0 1 1 4.6 3c-.9.4-1.4 1.1-1.4 2v.6"></path><circle cx="12" cy="18.6" r="1.1" fill="currentColor" stroke="none"></circle></g></symbol>
+<symbol id="i-game" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M7 8h10a4 4 0 0 1 4 4.5l-.6 3.5a2.5 2.5 0 0 1-4.3 1.2L14.5 15h-5l-1.6 2.2A2.5 2.5 0 0 1 3.6 16L3 12.5A4 4 0 0 1 7 8z"></path><path d="M7.5 10.5v3.5M5.75 12.25h3.5"></path><circle cx="16" cy="11" r="1" fill="currentColor" stroke="none"></circle><circle cx="17.8" cy="13.4" r="1" fill="currentColor" stroke="none"></circle></g></symbol>
+<symbol id="i-clip" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><rect x="5" y="4.5" width="14" height="16.5" rx="2.5"></rect><path d="M9 3h6v3.2H9z"></path><path d="M8.3 11.2l1.5 1.5 2.4-2.6M14.2 11.6h2.3M8.3 16.2l1.5 1.5 2.4-2.6M14.2 16.6h2.3"></path></g></symbol>
+<symbol id="i-sandh" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M5 20v-6.5a3.5 3.5 0 0 1 7 0V20M12 13.5a3.5 3.5 0 0 1 7 0V20"></path><path d="M9 4.5c1.5-1.5 4.5-1.5 6 0M12 4.5V8"></path></g></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="3.2"></circle><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.8 1.8M16.7 16.7l1.8 1.8M5.5 18.5l1.8-1.8M16.7 7.3l1.8-1.8"></path><circle cx="12" cy="12" r="6.6"></circle></g></symbol>
+<symbol id="i-music" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><path d="M9 18V5.5l11-2V16"></path><circle cx="6.5" cy="18" r="2.6" fill="currentColor"></circle><circle cx="17.5" cy="16" r="2.6" fill="currentColor"></circle></g></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.1 6.4 20l1.1-6.2L3 9.4l6.2-.9z" fill="currentColor"></path></symbol>
+<symbol id="i-undo" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M9 14 4 9l5-5"></path><path d="M4 9h10a6 6 0 0 1 0 12h-3"></path></g></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l1 13h9l1-13"></path><path d="M10 11v5M14 11v5"></path></g></symbol>
+<symbol id="i-retry" viewBox="0 0 24 24"><g style="fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round"><path d="M20 12a8 8 0 1 1-2.3-5.7"></path><path d="M20 4v5h-5"></path></g></symbol>
+</defs>
+</svg>
+
+<div ref="{{ vpRef }}" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#0f2233">
+<div ref="{{ stageRef }}" data-screen-label="{{ screenLabel }}" style="position:relative;flex:none;width:1600px;height:900px;overflow:hidden;transform:scale({{ scale }});transform-origin:50% 50%;font-family:var(--sj-font-body);color:var(--sj-ink-900);background:#5BB4F0">
+<img src="assets/bg_menu.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+
+<img src="assets/logo_tutwuri.png" alt="Tut Wuri Handayani" style="position:absolute;left:36px;top:22px;width:132px;height:133px;z-index:10;filter:drop-shadow(0 6px 8px rgba(0,0,0,.3))">
+<div style="position:absolute;right:36px;top:28px;height:104px;border-radius:22px;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.25);padding:10px 22px;box-sizing:border-box;z-index:10;display:flex;align-items:center;gap:18px">
+<div aria-label="Kemendikbudristek" style="display:flex;flex-direction:column;align-items:center;gap:3px"><img src="assets/logo_tutwuri.png" alt="" style="width:62px;height:62px"><span style="font:800 10px/1 var(--sj-font-body);letter-spacing:.02em;color:#1F2A44">KEMENDIKBUDRISTEK</span></div>
+<div style="width:2px;height:66px;background:#E3D3B3"></div>
+<div aria-label="Merdeka Belajar" style="display:flex;align-items:center;gap:8px"><img src="assets/logo_merdeka_ikon.png" alt="" style="height:70px"><img src="assets/logo_merdeka_teks.png" alt="" style="height:58px"></div>
+</div>
+<button onClick="{{ openSettings }}" aria-label="Pengaturan" style="position:absolute;right:36px;top:148px;z-index:10;display:flex;flex-direction:column;align-items:center;gap:5px;background:none;border:0;padding:0;cursor:pointer;transition:transform 240ms var(--sj-ease-bounce)" style-hover="transform:scale(1.08)" style-active="transform:scale(.92)">
+<span style="position:relative;width:76px;height:76px;box-sizing:border-box;border-radius:50%;background:var(--sj-grad-btn-orange);border:5px solid var(--sj-wood-500);box-shadow:var(--sj-shadow-btn3d-orange),var(--sj-shadow-inner-gloss);display:grid;place-items:center;color:#fff"><span style="position:absolute;left:18%;right:18%;top:7%;height:34%;border-radius:50%;background:var(--sj-grad-gloss);opacity:.75"></span><svg width="40" height="40" style="position:relative;filter:drop-shadow(0 2px 0 rgba(0,0,0,.3))"><use href="#i-gear"></use></svg></span>
+<span style="font:600 14px/1 var(--sj-font-display);letter-spacing:.04em;color:#FFF6E3;background:var(--sj-grad-wood);border:3px solid var(--sj-wood-900);border-radius:10px;padding:5px 9px 6px;text-shadow:0 2px 0 var(--sj-wood-900)">PENGATURAN</span>
+</button>
+
+<!-- ================= COVER ================= -->
+<sc-if value="{{ isCover }}" hint-placeholder-val="{{ true }}">
+<div data-screen-label="01 Cover" style="position:absolute;inset:0;z-index:2">
+<img src="assets/papan_menu.png" alt="SDN Kendangsari II" data-anim="swing" data-anim-key="{{ introKey }}" style="position:absolute;left:530px;top:-22px;width:540px;transform-origin:50% 0;z-index:6">
+<div data-anim="pop" data-anim-key="{{ introKey }}" data-anim-delay="150" style="position:absolute;left:0;right:0;top:146px;text-align:center;font:700 60px/1 var(--sj-font-display);color:#1F3F8F;-webkit-text-stroke:10px #fff;paint-order:stroke fill;filter:drop-shadow(0 4px 0 rgba(31,63,143,.35));z-index:7">Media Pembelajaran</div>
+<div aria-label="SIAKJADA" style="position:absolute;left:0;right:0;top:206px;display:flex;justify-content:center;gap:2px;font:700 176px/1 var(--sj-font-display);-webkit-text-stroke:18px #fff;paint-order:stroke fill;filter:drop-shadow(0 8px 0 rgba(90,50,20,.38));z-index:7">
+<sc-for list="{{ logo }}" as="ch" hint-placeholder-count="8"><span data-anim="logo" data-anim-key="{{ introKey }}" data-anim-delay="{{ ch.delay }}" style="display:inline-block;color:{{ ch.c }};transform:rotate({{ ch.r }}deg)">{{ ch.t }}</span></sc-for>
+</div>
+<img src="assets/pita_menu.png" alt="Sinau Aksara Jawa dengan Mudah" data-anim="pop" data-anim-key="{{ introKey }}" data-anim-delay="700" style="position:absolute;left:440px;top:360px;width:720px;z-index:7">
+<img src="assets/badge_menu.png" alt="Kelas IV" data-anim="pop" data-anim-key="{{ introKey }}" data-anim-delay="850" style="position:absolute;left:660px;top:540px;width:280px;z-index:8">
+<sc-if value="{{ showChars }}" hint-placeholder-val="{{ true }}">
+<img src="assets/avatar_cowo_berdiri.png" alt="" data-anim="bob" data-anim-key="c1" style="position:absolute;left:-70px;top:286px;height:640px;z-index:5">
+<img src="assets/avatar_cewe_fullbody.png" alt="" data-anim="bob" data-anim-key="c2" data-anim-delay="900" style="position:absolute;left:1150px;top:300px;height:680px;z-index:5">
+</sc-if>
+<!-- MenuButton row -->
+<nav aria-label="Menu utama" style="position:absolute;left:239px;top:716px;display:flex;gap:14px;z-index:10">
+<sc-for list="{{ menu }}" as="m" hint-placeholder-count="8">
+<button onClick="{{ m.on }}" aria-label="{{ m.label }}" data-anim="pop" data-anim-key="{{ introKey }}" data-anim-delay="{{ m.delay }}" style="width:128px;height:150px;padding:5px;border:0;border-radius:26px;background:var(--sj-grad-wood);box-shadow:0 6px 0 var(--sj-wood-900),0 12px 20px rgba(0,0,0,.32);cursor:pointer;transition:transform 240ms var(--sj-ease-bounce)" style-hover="transform:translateY(-6px) scale(1.06)" style-active="transform:translateY(3px) scale(.95)">
+<span style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;height:100%;border-radius:21px;background:linear-gradient(180deg,{{ m.c1 }},{{ m.c2 }});box-shadow:inset 0 -6px 0 rgba(0,0,0,.18),inset 0 3px 0 rgba(255,255,255,.35);color:#fff;overflow:hidden">
+<span style="position:absolute;left:8px;right:8px;top:6px;height:42%;border-radius:16px 16px 40px 40px;background:var(--sj-grad-gloss);opacity:.55"></span>
+<sc-if value="{{ m.glyph }}"><span style="position:relative;font:700 44px/1.3 var(--sj-font-aksara);height:60px;display:flex;align-items:center;text-shadow:0 3px 0 rgba(0,0,0,.25)">{{ m.glyph }}</span></sc-if>
+<sc-if value="{{ m.icon }}"><svg width="56" height="56" style="position:relative;filter:drop-shadow(0 3px 0 rgba(0,0,0,.25))"><use href="#{{ m.icon }}"></use></svg></sc-if>
+<span style="position:relative;font:600 18px/1.05 var(--sj-font-display);text-shadow:0 2px 0 rgba(0,0,0,.3);text-align:center;padding:0 4px">{{ m.label }}</span>
+</span>
+</button>
+</sc-for>
+</nav>
+</div>
+</sc-if>
+
+<!-- ================= FEATURE PAGES ================= -->
+<sc-if value="{{ isFeature }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;z-index:2">
+<img src="assets/papan_menu.png" alt="SDN Kendangsari II" style="position:absolute;left:540px;top:-24px;width:520px;z-index:6">
+<!-- ParchmentPanel -->
+<div style="position:absolute;left:230px;top:200px;width:1140px;height:650px;box-sizing:border-box;background:radial-gradient(ellipse at 30% 15%,#FFF8E8 0%,rgba(255,248,232,0) 60%),var(--sj-parchment-100);border:var(--sj-border-panel);border-radius:var(--sj-radius-xl);box-shadow:var(--sj-shadow-panel);z-index:3">
+<div style="position:absolute;inset:12px;border:var(--sj-border-dash);border-radius:34px;pointer-events:none"></div>
+<div style="position:absolute;left:50px;top:76px;width:1028px;height:518px">
+
+<!-- MATERI -->
+<sc-if value="{{ isMateri }}">
+<div data-screen-label="02 Materi" data-anim="rise" data-anim-key="{{ contentKey }}" style="position:absolute;inset:0;overflow-x:hidden;overflow-y:auto;padding-right:18px;box-sizing:border-box">
+<h2 style="margin:0 0 10px;font:700 36px/1.2 var(--sj-font-display);color:var(--sj-wood-700)">Sejarah Singkat Aksara Jawa</h2>
+<p style="margin:0 0 14px;font:600 22px/1.6 var(--sj-font-body);text-wrap:pretty">Aksara Jawa atau <b>Hanacaraka</b> adalah huruf tradisional untuk menulis bahasa Jawa. Aksara ini berkembang dari aksara Kawi, yang berakar dari aksara Brahmi dari India. Dahulu aksara Jawa dipakai untuk menulis naskah, surat, dan tembang di keraton. Sekarang kita masih bisa melihatnya di papan nama jalan, gapura, dan buku pelajaran.</p>
+<div style="display:flex;gap:18px;align-items:flex-start;background:var(--sj-warning-100);border:3px solid #F2C94C;border-radius:22px;padding:16px 20px;margin:0 0 22px">
+<span style="flex:none;width:48px;height:48px;border-radius:50%;background:var(--sj-grad-btn-orange);color:#fff;display:grid;place-items:center;box-shadow:0 3px 0 var(--sj-orange-700)"><svg width="30" height="30"><use href="#i-help"></use></svg></span>
+<div><div style="font:700 24px/1.3 var(--sj-font-display);color:var(--sj-orange-700)">Tahukah kamu?</div><p style="margin:4px 0 0;font:600 20px/1.55 var(--sj-font-body);text-wrap:pretty">Menurut cerita rakyat, aksara Jawa berasal dari kisah <b>Aji Saka</b> dan dua abdinya yang setia, <b>Dora</b> dan <b>Sembada</b>. Kisah mereka diabadikan menjadi urutan 20 aksara: <i>ha na ca ra ka</i>.</p></div>
+</div>
+<h2 style="margin:0 0 10px;font:700 36px/1.2 var(--sj-font-display);color:var(--sj-wood-700)">Mengenal Aksara Jawa</h2>
+<p style="margin:0 0 16px;font:600 22px/1.6 var(--sj-font-body);text-wrap:pretty">Aksara Jawa ditulis dari kiri ke kanan. Setiap aksara dasar dibaca dengan bunyi vokal <b>a</b>, misalnya <span style="font:700 30px/1 var(--sj-font-aksara)">ꦏ</span> dibaca <b>ka</b>. Di kelas IV, kita belajar dua bagian:</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 22px">
+<div style="background:var(--sj-parchment-50);border:3px solid var(--sj-parchment-300);border-radius:22px;padding:16px 20px;box-shadow:var(--sj-shadow-card)"><div style="font:700 26px/1.3 var(--sj-font-display);color:var(--sj-blue-700)">Aksara Carakan</div><p style="margin:4px 0 0;font:600 20px/1.5 var(--sj-font-body)">20 aksara dasar, dari <b>ha</b> sampai <b>nga</b>.</p></div>
+<div style="background:var(--sj-parchment-50);border:3px solid var(--sj-parchment-300);border-radius:22px;padding:16px 20px;box-shadow:var(--sj-shadow-card)"><div style="font:700 26px/1.3 var(--sj-font-display);color:#6A3DB8">Sandhangan</div><p style="margin:4px 0 0;font:600 20px/1.5 var(--sj-font-body)">Tanda yang mengubah bunyi aksara, seperti <b>wulu</b> (i) dan <b>suku</b> (u).</p></div>
+</div>
+<h3 style="margin:0 0 10px;font:700 28px/1.2 var(--sj-font-display);color:var(--sj-wood-700)">Arti urutan Hanacaraka</h3>
+<div style="display:flex;flex-direction:column;gap:10px;margin:0 0 24px">
+<sc-for list="{{ carakanRows }}" as="r" hint-placeholder-count="4">
+<div style="display:grid;grid-template-columns:230px 250px 1fr;align-items:center;gap:16px;background:var(--sj-parchment-50);border:2px dashed var(--sj-parchment-500);border-radius:18px;padding:8px 18px">
+<span style="font:700 40px/1.4 var(--sj-font-aksara)">{{ r.a }}</span>
+<span style="font:700 24px/1.2 var(--sj-font-display);color:var(--sj-wood-700)">{{ r.l }}</span>
+<span style="font:600 20px/1.4 var(--sj-font-body);color:var(--sj-ink-600)">{{ r.m }}</span>
+</div>
+</sc-for>
+</div>
+<div style="display:flex;gap:16px;padding-bottom:8px">
+<button onClick="{{ goCover }}" style="display:flex;align-items:center;gap:10px;padding:12px 26px;border-radius:18px;border:3px solid var(--sj-orange-700);background:linear-gradient(180deg,#FFC34D,#F29A17);box-shadow:0 5px 0 var(--sj-orange-700);color:#fff;font:600 24px/1 var(--sj-font-display);text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;transition:transform 200ms var(--sj-ease-bounce)" style-hover="transform:scale(1.04)" style-active="transform:translateY(3px) scale(.97)"><svg width="26" height="26"><use href="#i-home"></use></svg>Kembali ke Cover</button>
+<button onClick="{{ goAksara }}" style="display:flex;align-items:center;gap:10px;padding:12px 26px;border-radius:18px;border:3px solid var(--sj-blue-700);background:linear-gradient(180deg,#44A6F2,#1B72C9);box-shadow:0 5px 0 var(--sj-blue-700);color:#fff;font:600 24px/1 var(--sj-font-display);text-shadow:0 2px 0 rgba(0,0,0,.2);cursor:pointer;transition:transform 200ms var(--sj-ease-bounce)" style-hover="transform:scale(1.04)" style-active="transform:translateY(3px) scale(.97)">Lihat Aksara Jawa<svg width="26" height="26"><use href="#i-right"></use></svg></button>
+</div>
+</div>
+</sc-if>
+
+<!-- AKSARA JAWA (tabel) -->
+<sc-if value="{{ isAksara }}">
+<div data-screen-label="03 Aksara Jawa" style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,186px);grid-auto-rows:116px;gap:14px 24px">
+<sc-for list="{{ aksara }}" as="t" hint-placeholder-count="20">
+<button onClick="{{ t.on }}" aria-label="Aksara {{ t.l }}" data-anim="pop" data-anim-key="{{ contentKey }}" data-anim-delay="{{ t.delay }}" style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:6px 0 10px;background:var(--sj-parchment-50);border:2px dashed var(--sj-parchment-500);border-radius:20px;box-shadow:var(--sj-shadow-card);cursor:pointer;transition:transform 200ms var(--sj-ease-bounce),border-color 200ms" style-hover="transform:translateY(-4px) scale(1.05);border-color:#1E7FD8;border-style:solid" style-active="transform:scale(.96)">
+<span style="font:400 66px/1.2 var(--sj-font-aksara);color:var(--sj-ink-900)">{{ t.a }}</span>
+<span style="width:76%;padding:4px 0 5px;border-radius:12px;background:var(--sj-grad-wood);color:#FFF6E3;font:600 22px/1 var(--sj-font-display);box-shadow:0 2px 0 var(--sj-wood-900)">{{ t.l }}</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+
+<!-- LATIHAN: tabs -->
+<sc-if value="{{ isLatihan }}">
+<div role="tablist" style="position:absolute;right:-6px;top:-60px;display:flex;gap:8px;z-index:2">
+<button role="tab" onClick="{{ setTulis }}" style="display:flex;align-items:center;gap:6px;height:46px;padding:0 16px;border-radius:999px;border:3px solid var(--sj-wood-700);background:{{ tabTulisBg }};color:{{ tabTulisFg }};font:600 18px/1 var(--sj-font-display);cursor:pointer"><svg width="22" height="22"><use href="#i-pencil"></use></svg>Menulis</button>
+<button role="tab" onClick="{{ setKuis }}" style="display:flex;align-items:center;gap:6px;height:46px;padding:0 16px;border-radius:999px;border:3px solid var(--sj-wood-700);background:{{ tabKuisBg }};color:{{ tabKuisFg }};font:600 18px/1 var(--sj-font-display);cursor:pointer"><svg width="22" height="22"><use href="#i-help"></use></svg>Tebak Aksara</button>
+</div>
+</sc-if>
+
+<!-- LATIHAN MENULIS -->
+<sc-if value="{{ isTulis }}">
+<div data-screen-label="04 Latihan Menulis" data-anim="slide" data-anim-key="{{ contentKey }}" style="position:absolute;inset:0">
+<div style="position:absolute;left:0;top:-8px;width:270px;height:101px">
+<img src="assets/papan.png" alt="" style="width:100%;height:100%">
+<div style="position:absolute;left:0;right:0;top:26%;bottom:16%;display:flex;align-items:center;justify-content:center;font:700 40px/1 var(--sj-font-display);color:#fff;-webkit-text-stroke:7px var(--sj-wood-900);paint-order:stroke fill;text-shadow:0 3px 0 var(--sj-wood-900)">{{ cur.L }}</div>
+</div>
+<!-- AksaraCard -->
+<div style="position:absolute;left:15px;top:104px;width:240px;height:330px;box-sizing:border-box;background:var(--sj-parchment-50);border:4px solid var(--sj-parchment-300);border-radius:30px;box-shadow:var(--sj-shadow-card);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:18px 20px 22px">
+<button onClick="{{ speakCur }}" aria-label="Dengarkan bunyi {{ cur.l }}" style="position:absolute;right:-18px;top:-18px;width:52px;height:52px;border-radius:50%;border:4px solid #F7C75A;background:var(--sj-grad-btn-blue);box-shadow:0 4px 0 var(--sj-blue-700);color:#fff;display:grid;place-items:center;cursor:pointer;transition:transform 200ms var(--sj-ease-bounce)" style-hover="transform:scale(1.1)" style-active="transform:scale(.92)"><svg width="26" height="26"><use href="#i-sound"></use></svg></button>
+<span style="flex:1;display:flex;align-items:center;font:400 150px/1 var(--sj-font-aksara);color:var(--sj-ink-900)">{{ cur.a }}</span>
+<span style="width:100%;text-align:center;padding:9px 0 11px;border-radius:16px;background:var(--sj-grad-wood);color:#FFF6E3;font:600 32px/1 var(--sj-font-display);box-shadow:0 3px 0 var(--sj-wood-900)">{{ cur.l }}</span>
+</div>
+<svg width="60" height="60" viewBox="0 0 24 24" aria-hidden="true" style="position:absolute;left:272px;top:238px;filter:drop-shadow(0 3px 0 #B8650A)"><path d="M3 9h9V4.5l9 7.5-9 7.5V15H3z" fill="#FFB52E" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+<!-- WritingCanvas -->
+<div style="position:absolute;left:346px;top:0;width:682px;height:518px;display:flex;flex-direction:column;gap:12px">
+<div style="position:relative;flex:1;border:4px solid var(--sj-parchment-300);border-radius:28px;background-color:#FFFDF7;background-image:linear-gradient(#F1E2C2 1px,transparent 1px),linear-gradient(90deg,#F1E2C2 1px,transparent 1px);background-size:40px 40px;background-position:-1px -1px;overflow:hidden;box-shadow:inset 0 2px 6px rgba(120,70,20,.12)">
+<div style="position:absolute;left:0;right:0;top:28%;border-top:3px dashed #E0B878"></div>
+<div style="position:absolute;left:0;right:0;top:72%;border-top:3px dashed #E0B878"></div>
+<sc-if value="{{ trace }}"><div aria-hidden="true" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:400 300px/1 var(--sj-font-aksara);color:#3B1E0A;opacity:.12;pointer-events:none">{{ cur.a }}</div></sc-if>
+<canvas ref="{{ cvRef }}" width="1348" height="868" aria-label="Kanvas menulis aksara {{ cur.l }}" onPointerDown="{{ pDown }}" onPointerMove="{{ pMove }}" onPointerUp="{{ pUp }}" onPointerLeave="{{ pUp }}" style="position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair"></canvas>
+<sc-if value="{{ emptyCanvas }}"><div style="position:absolute;left:0;right:0;bottom:14px;text-align:center;font:600 18px/1 var(--sj-font-body);color:var(--sj-ink-600);pointer-events:none">Tulis aksara <b>{{ cur.l }}</b> di sini dengan jari atau mouse</div></sc-if>
+</div>
+<div style="display:flex;align-items:center;gap:12px;height:56px">
+<button onClick="{{ undo }}" disabled="{{ emptyCanvas }}" style="display:flex;align-items:center;gap:8px;height:52px;padding:0 18px;border-radius:16px;border:3px solid var(--sj-wood-700);background:linear-gradient(180deg,#F6E1B8,#E7C58A);box-shadow:0 4px 0 var(--sj-wood-700);color:var(--sj-ink-900);font:600 20px/1 var(--sj-font-display);cursor:pointer;opacity:{{ toolOpacity }};transition:transform 200ms var(--sj-ease-bounce)" style-active="transform:translateY(3px)"><svg width="24" height="24"><use href="#i-undo"></use></svg>Urungkan</button>
+<button onClick="{{ clearCv }}" disabled="{{ emptyCanvas }}" style="display:flex;align-items:center;gap:8px;height:52px;padding:0 18px;border-radius:16px;border:3px solid #A8281F;background:linear-gradient(180deg,#F26B5E,#D93A2E);box-shadow:0 4px 0 #A8281F;color:#fff;font:600 20px/1 var(--sj-font-display);cursor:pointer;opacity:{{ toolOpacity }};transition:transform 200ms var(--sj-ease-bounce)" style-active="transform:translateY(3px)"><svg width="24" height="24"><use href="#i-trash"></use></svg>Hapus</button>
+<div role="radiogroup" aria-label="Ketebalan" style="display:flex;align-items:center;gap:6px;margin-left:auto;background:var(--sj-parchment-50);border:3px solid var(--sj-parchment-300);border-radius:16px;padding:4px 10px 4px 14px;height:52px;box-sizing:border-box">
+<span style="font:600 16px/1 var(--sj-font-body);color:var(--sj-ink-600);margin-right:4px">Ketebalan</span>
+<sc-for list="{{ pens }}" as="p" hint-placeholder-count="3"><button role="radio" aria-checked="{{ p.on }}" aria-label="{{ p.id }}" onClick="{{ p.pick }}" style="width:40px;height:40px;border-radius:12px;border:3px solid {{ p.bd }};background:{{ p.bg }};display:grid;place-items:center;cursor:pointer"><span style="width:{{ p.d }}px;height:{{ p.d }}px;border-radius:50%;background:var(--sj-ink-900)"></span></button></sc-for>
+</div>
+<button onClick="{{ toggleTrace }}" aria-pressed="{{ trace }}" style="display:flex;align-items:center;gap:8px;height:52px;padding:0 14px;border-radius:16px;border:3px solid var(--sj-blue-700);background:{{ traceBg }};color:{{ traceFg }};font:600 18px/1 var(--sj-font-display);cursor:pointer">Jiplak</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- LATIHAN KUIS -->
+<sc-if value="{{ isKuis }}">
+<div data-screen-label="06 Latihan Kuis" data-anim="slide" data-anim-key="{{ contentKey }}" style="position:absolute;inset:0">
+<sc-if value="{{ kqRunning }}">
+<div style="display:flex;align-items:center;gap:18px;height:40px">
+<span style="font:700 24px/1 var(--sj-font-display);color:var(--sj-wood-700)">Soal {{ kqNum }} dari 5</span>
+<div role="progressbar" aria-valuenow="{{ kqNum }}" aria-valuemax="5" style="flex:1;height:18px;border-radius:999px;background:#EAD5AA;box-shadow:inset 0 2px 3px rgba(0,0,0,.15);overflow:hidden"><div style="height:100%;width:{{ kqPct }}%;border-radius:999px;background:linear-gradient(180deg,#6FD07A,#2E9E48);transition:width 420ms var(--sj-ease-out)"></div></div>
+<span style="display:flex;align-items:center;gap:6px;font:700 22px/1 var(--sj-font-display);color:var(--sj-orange-700)"><svg width="28" height="28" style="color:#F5B400"><use href="#i-star"></use></svg>{{ kq.score }}</span>
+</div>
+<div style="position:absolute;left:0;top:64px;width:290px;height:390px;box-sizing:border-box;background:var(--sj-parchment-50);border:4px solid var(--sj-parchment-300);border-radius:30px;box-shadow:var(--sj-shadow-card);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:18px 20px 22px">
+<span style="font:600 20px/1.2 var(--sj-font-display);color:var(--sj-ink-600)">Aksara apakah ini?</span>
+<span style="flex:1;display:flex;align-items:center;font:400 170px/1 var(--sj-font-aksara)">{{ kqCur.a }}</span>
+<span style="width:100%;text-align:center;padding:9px 0 11px;border-radius:16px;background:var(--sj-grad-wood);color:#FFF6E3;font:600 32px/1 var(--sj-font-display);box-shadow:0 3px 0 var(--sj-wood-900)">{{ kqReveal }}</span>
+</div>
+<div style="position:absolute;left:330px;top:64px;right:0;display:grid;grid-template-columns:1fr 1fr;gap:22px">
+<sc-for list="{{ kqOpts }}" as="o" hint-placeholder-count="4">
+<button onClick="{{ o.on }}" style="position:relative;height:150px;border-radius:26px;border:4px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.fg }};box-shadow:0 6px 0 {{ o.bd }};font:700 56px/1 var(--sj-font-display);cursor:pointer;transition:transform 200ms var(--sj-ease-bounce)" style-hover="transform:translateY(-4px) scale(1.02)" style-active="transform:translateY(3px) scale(.98)">{{ o.text }}
+<sc-if value="{{ o.ok }}"><span style="position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;background:var(--sj-success-500);color:#fff;display:grid;place-items:center"><svg width="26" height="26"><use href="#i-check"></use></svg></span></sc-if>
+<sc-if value="{{ o.bad }}"><span style="position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;background:var(--sj-error-500);color:#fff;display:grid;place-items:center"><svg width="24" height="24"><use href="#i-x"></use></svg></span></sc-if>
+</button>
+</sc-for>
+</div>
+<div style="position:absolute;left:330px;right:0;top:420px;height:54px;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:18px;background:{{ kqFb.bg }};color:{{ kqFb.fg }};font:700 22px/1 var(--sj-font-display)">{{ kqFb.text }}</div>
+</sc-if>
+<sc-if value="{{ kq.done }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center">
+<div style="display:flex;gap:10px"><sc-for list="{{ kqStars }}" as="s" hint-placeholder-count="3"><svg width="84" height="84" style="color:{{ s.c }};filter:drop-shadow(0 4px 0 rgba(0,0,0,.15))"><use href="#i-star"></use></svg></sc-for></div>
+<div style="font:700 48px/1.1 var(--sj-font-display);color:var(--sj-wood-700)">Latihan selesai!</div>
+<div style="font:600 24px/1.4 var(--sj-font-body)">Kamu menjawab benar <b>{{ kq.score }} dari 5</b> soal pada percobaan pertama.</div>
+<div style="display:flex;gap:16px;margin-top:6px">
+<button onClick="{{ resetKuis }}" style="display:flex;align-items:center;gap:10px;padding:14px 28px;border-radius:18px;border:3px solid var(--sj-orange-700);background:linear-gradient(180deg,#FFC34D,#F29A17);box-shadow:0 5px 0 var(--sj-orange-700);color:#fff;font:600 24px/1 var(--sj-font-display);cursor:pointer"><svg width="26" height="26"><use href="#i-retry"></use></svg>Coba Lagi</button>
+<button onClick="{{ goEval }}" style="display:flex;align-items:center;gap:10px;padding:14px 28px;border-radius:18px;border:3px solid var(--sj-blue-700);background:linear-gradient(180deg,#44A6F2,#1B72C9);box-shadow:0 5px 0 var(--sj-blue-700);color:#fff;font:600 24px/1 var(--sj-font-display);cursor:pointer">Lanjut ke Evaluasi<svg width="26" height="26"><use href="#i-right"></use></svg></button>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<!-- SANDHANGAN -->
+<sc-if value="{{ isSandhangan }}">
+<div data-screen-label="05 Sandhangan" style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:250px;gap:18px 19px">
+<sc-for list="{{ sandh }}" as="s" hint-placeholder-count="10">
+<button onClick="{{ s.on }}" aria-label="Sandhangan {{ s.n }}, contoh {{ s.wl }}" data-anim="pop" data-anim-key="{{ contentKey }}" data-anim-delay="{{ s.delay }}" style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 10px;overflow:hidden;color:var(--sj-ink-900);background:var(--sj-parchment-50);border:3px solid var(--sj-parchment-300);border-radius:24px;box-shadow:var(--sj-shadow-card);cursor:pointer;transition:transform 200ms var(--sj-ease-bounce)" style-hover="transform:translateY(-4px) scale(1.03)" style-active="transform:scale(.97)">
+<span style="padding:5px 14px 6px;border-radius:12px;background:linear-gradient(180deg,#9A6BE0,#6A3DB8);color:#fff;font:600 19px/1 var(--sj-font-display);box-shadow:0 2px 0 #4B2690;white-space:nowrap">{{ s.n }}</span>
+<span style="height:92px;display:flex;align-items:center;font:400 64px/1.2 var(--sj-font-aksara);color:var(--sj-ink-900)">{{ s.s }}</span>
+<span style="font:600 17px/1.2 var(--sj-font-body);color:var(--sj-ink-600)">ka → <b style="color:var(--sj-ink-900)">{{ s.sl }}</b> · bunyi {{ s.b }}</span>
+<span style="margin-top:auto;width:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:14px;border:2px dashed var(--sj-parchment-500);padding:2px 4px 6px"><span style="font:400 24px/1.5 var(--sj-font-aksara);color:var(--sj-ink-900);white-space:nowrap">{{ s.w }}</span><span style="font:600 18px/1 var(--sj-font-display);color:var(--sj-wood-700)">{{ s.wl }}</span></span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+
+<!-- PERMAINAN -->
+<sc-if value="{{ isGame }}">
+<div data-screen-label="07 Permainan" style="position:absolute;inset:0">
+<div style="display:flex;align-items:center;gap:16px;height:56px">
+<span style="font:700 26px/1.1 var(--sj-font-display);color:var(--sj-wood-700)">Cocokkan aksara dengan bacaannya!</span>
+<span style="margin-left:auto;padding:8px 16px;border-radius:999px;background:var(--sj-parchment-50);border:3px solid var(--sj-parchment-300);font:700 19px/1 var(--sj-font-display)">Langkah: {{ g.moves }}</span>
+<button onClick="{{ resetGame }}" style="display:flex;align-items:center;gap:8px;height:48px;padding:0 18px;border-radius:16px;border:3px solid var(--sj-orange-700);background:linear-gradient(180deg,#FFC34D,#F29A17);box-shadow:0 4px 0 var(--sj-orange-700);color:#fff;font:600 20px/1 var(--sj-font-display);cursor:pointer"><svg width="22" height="22"><use href="#i-retry"></use></svg>Main Lagi</button>
+</div>
+<div style="position:absolute;left:0;right:0;top:80px;display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:206px;gap:18px">
+<sc-for list="{{ cards }}" as="c" hint-placeholder-count="12">
+<button onClick="{{ c.on }}" aria-label="{{ c.aria }}" data-anim="pop" data-anim-key="{{ c.key }}" style="position:relative;border-radius:22px;border:4px solid {{ c.bd }};background:{{ c.bg }};box-shadow:0 6px 0 {{ c.sh }};cursor:pointer;display:grid;place-items:center;transition:transform 200ms var(--sj-ease-bounce)" style-hover="transform:translateY(-4px)" style-active="transform:scale(.96)">
+<sc-if value="{{ c.back }}"><span style="width:70px;height:70px;border-radius:50%;background:rgba(255,246,227,.18);border:3px solid rgba(255,246,227,.5);display:grid;place-items:center;color:#FFF6E3"><svg width="40" height="40"><use href="#i-help"></use></svg></span></sc-if>
+<sc-if value="{{ c.showA }}"><span style="font:400 80px/1.2 var(--sj-font-aksara);color:var(--sj-ink-900)">{{ c.text }}</span></sc-if>
+<sc-if value="{{ c.showL }}"><span style="font:700 50px/1 var(--sj-font-display);color:var(--sj-blue-700)">{{ c.text }}</span></sc-if>
+<sc-if value="{{ c.done }}"><span style="position:absolute;right:10px;top:10px;width:32px;height:32px;border-radius:50%;background:var(--sj-success-500);color:#fff;display:grid;place-items:center"><svg width="20" height="20"><use href="#i-check"></use></svg></span></sc-if>
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<!-- EVALUASI -->
+<sc-if value="{{ isEval }}">
+<div data-screen-label="08 Evaluasi" data-anim="slide" data-anim-key="{{ contentKey }}" style="position:absolute;inset:0">
+<div style="display:flex;align-items:center;gap:18px;height:40px">
+<span style="font:700 24px/1 var(--sj-font-display);color:var(--sj-wood-700)">Soal {{ evNum }} dari 10</span>
+<div role="progressbar" aria-valuenow="{{ evNum }}" aria-valuemax="10" style="flex:1;height:18px;border-radius:999px;background:#EAD5AA;box-shadow:inset 0 2px 3px rgba(0,0,0,.15);overflow:hidden"><div style="height:100%;width:{{ evPct }}%;border-radius:999px;background:linear-gradient(180deg,#6CC3FF,#1E7FD8);transition:width 420ms var(--sj-ease-out)"></div></div>
+</div>
+<div style="position:absolute;left:0;top:64px;width:290px;height:390px;box-sizing:border-box;background:var(--sj-parchment-50);border:4px solid var(--sj-parchment-300);border-radius:30px;box-shadow:var(--sj-shadow-card);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:18px 20px 22px;text-align:center">
+<span style="font:600 20px/1.25 var(--sj-font-display);color:var(--sj-ink-600)">{{ evCur.q }}</span>
+<sc-if value="{{ evCur.stimA }}"><span style="flex:1;display:flex;align-items:center;font:400 170px/1 var(--sj-font-aksara)">{{ evCur.stim }}</span></sc-if>
+<sc-if value="{{ evCur.stimL }}"><span style="flex:1;display:flex;align-items:center;font:700 110px/1 var(--sj-font-display);color:var(--sj-blue-700)">{{ evCur.stim }}</span></sc-if>
+<span style="font:600 16px/1.2 var(--sj-font-body);color:var(--sj-ink-600)">Pilih satu jawaban, lalu tekan <b>Cek Jawaban</b></span>
+</div>
+<div style="position:absolute;left:330px;top:64px;right:0;display:grid;grid-template-columns:1fr 1fr;gap:22px">
+<sc-for list="{{ evOpts }}" as="o" hint-placeholder-count="4">
+<button data-opt="{{ o.v }}" onClick="{{ o.on }}" aria-pressed="{{ o.sel }}" style="position:relative;height:150px;border-radius:26px;border:4px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.fg }};box-shadow:0 6px 0 {{ o.bd }};opacity:{{ o.op }};cursor:pointer;transition:transform 200ms var(--sj-ease-bounce)" style-hover="transform:translateY(-4px) scale(1.02)" style-active="transform:translateY(3px) scale(.98)">
+<sc-if value="{{ o.isA }}"><span style="font:400 84px/1.2 var(--sj-font-aksara)">{{ o.text }}</span></sc-if>
+<sc-if value="{{ o.isL }}"><span style="font:700 56px/1 var(--sj-font-display)">{{ o.text }}</span></sc-if>
+<sc-if value="{{ o.ok }}"><span style="position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;background:var(--sj-success-500);color:#fff;display:grid;place-items:center"><svg width="26" height="26"><use href="#i-check"></use></svg></span></sc-if>
+<sc-if value="{{ o.bad }}"><span style="position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;background:var(--sj-error-500);color:#fff;display:grid;place-items:center"><svg width="24" height="24"><use href="#i-x"></use></svg></span></sc-if>
+</button>
+</sc-for>
+</div>
+<div style="position:absolute;left:330px;right:0;top:420px;height:58px;display:flex;align-items:center;gap:16px">
+<div style="flex:1;height:54px;display:flex;align-items:center;justify-content:center;border-radius:18px;background:{{ evFb.bg }};color:{{ evFb.fg }};font:700 21px/1.1 var(--sj-font-display);padding:0 12px;text-align:center">{{ evFb.text }}</div>
+<button onClick="{{ evAction }}" disabled="{{ evDisabled }}" style="display:flex;align-items:center;gap:10px;height:56px;padding:0 26px;border-radius:18px;border:3px solid {{ evBtn.bd }};background:{{ evBtn.bg }};box-shadow:0 5px 0 {{ evBtn.bd }};color:#fff;font:600 23px/1 var(--sj-font-display);text-shadow:0 2px 0 rgba(0,0,0,.2);opacity:{{ evBtn.op }};cursor:pointer;transition:transform 200ms var(--sj-ease-bounce)" style-active="transform:translateY(3px)">{{ evBtn.label }}<svg width="24" height="24"><use href="#{{ evBtn.icon }}"></use></svg></button>
+</div>
+</div>
+</sc-if>
+
+<!-- BANTUAN -->
+<sc-if value="{{ isBantuan }}">
+<div data-screen-label="09 Bantuan" data-anim="rise" data-anim-key="{{ contentKey }}" style="position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;overflow-x:hidden;overflow-y:auto;padding-right:12px;box-sizing:border-box">
+<div style="display:flex;flex-direction:column;gap:10px">
+<h2 style="margin:0 0 4px;font:700 30px/1.2 var(--sj-font-display);color:var(--sj-wood-700)">Tombol Navigasi</h2>
+<sc-for list="{{ navHelp }}" as="h" hint-placeholder-count="5">
+<div style="display:flex;align-items:center;gap:16px;padding:8px 14px;background:var(--sj-parchment-50);border:2px solid var(--sj-parchment-300);border-radius:18px">
+<span style="flex:none;width:58px;height:58px;border-radius:50%;background:{{ h.bg }};border:4px solid #F7C75A;box-shadow:0 3px 0 {{ h.sh }};color:#fff;display:grid;place-items:center"><svg width="30" height="30"><use href="#{{ h.icon }}"></use></svg></span>
+<div><div style="font:700 22px/1.2 var(--sj-font-display)">{{ h.n }}</div><div style="font:600 18px/1.35 var(--sj-font-body);color:var(--sj-ink-600)">{{ h.d }}</div></div>
+</div>
+</sc-for>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<h2 style="margin:0 0 4px;font:700 30px/1.2 var(--sj-font-display);color:var(--sj-wood-700)">Menu Utama</h2>
+<sc-for list="{{ menuHelp }}" as="h" hint-placeholder-count="6">
+<button onClick="{{ h.on }}" style="display:flex;align-items:center;gap:16px;padding:8px 14px;background:var(--sj-parchment-50);border:2px solid var(--sj-parchment-300);border-radius:18px;text-align:left;cursor:pointer;transition:transform 200ms var(--sj-ease-bounce)" style-hover="transform:translateX(4px);border-color:#1E7FD8">
+<span style="flex:none;width:54px;height:54px;border-radius:14px;background:linear-gradient(180deg,{{ h.c1 }},{{ h.c2 }});box-shadow:0 3px 0 var(--sj-wood-900);color:#fff;display:grid;place-items:center;font:700 19px/1.3 var(--sj-font-aksara);white-space:nowrap"><sc-if value="{{ h.glyph }}">{{ h.glyph }}</sc-if><sc-if value="{{ h.icon }}"><svg width="30" height="30"><use href="#{{ h.icon }}"></use></svg></sc-if></span>
+<div><div style="font:700 22px/1.2 var(--sj-font-display);color:var(--sj-ink-900)">{{ h.label }}</div><div style="font:600 18px/1.35 var(--sj-font-body);color:var(--sj-ink-600)">{{ h.d }}</div></div>
+</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+</div>
+</div>
+<!-- WoodSign judul halaman -->
+<div data-anim="swing" data-anim-key="{{ page }}" style="position:absolute;left:535px;top:110px;width:530px;height:180px;transform-origin:50% 0;z-index:7">
+<img src="assets/papan.png" alt="" style="width:100%;height:100%">
+<h1 style="position:absolute;left:0;right:0;top:26%;bottom:16%;margin:0;display:flex;align-items:center;justify-content:center;font:700 44px/1 var(--sj-font-display);letter-spacing:.02em;color:#fff;-webkit-text-stroke:8px var(--sj-wood-900);paint-order:stroke fill;text-shadow:0 4px 0 var(--sj-wood-900)">{{ pageTitle }}</h1>
+</div>
+<sc-if value="{{ showChars }}" hint-placeholder-val="{{ true }}">
+<img src="assets/avatar_cowo_fullbody.png" alt="" data-anim="bob" data-anim-key="f1" style="position:absolute;left:-70px;bottom:-14px;height:560px;z-index:4;pointer-events:none">
+<img src="assets/avatar_cewe_fullbody.png" alt="" data-anim="bob" data-anim-key="f2" data-anim-delay="900" style="position:absolute;left:1275px;bottom:-14px;height:560px;z-index:4;pointer-events:none">
+</sc-if>
+<!-- NavButtons kiri -->
+<nav aria-label="Navigasi" style="position:absolute;left:40px;bottom:18px;display:flex;gap:16px;z-index:9">
+<button onClick="{{ goHome }}" style="display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer;transition:transform 240ms var(--sj-ease-bounce)" style-hover="transform:scale(1.08)" style-active="transform:scale(.92)">
+<span style="position:relative;width:96px;height:96px;box-sizing:border-box;border-radius:50%;background:var(--sj-grad-btn-orange);border:5px solid var(--sj-wood-500);box-shadow:var(--sj-shadow-btn3d-orange),var(--sj-shadow-inner-gloss);display:grid;place-items:center;color:#fff"><span style="position:absolute;left:18%;right:18%;top:7%;height:34%;border-radius:50%;background:var(--sj-grad-gloss);opacity:.75"></span><svg width="48" height="48" style="position:relative;filter:drop-shadow(0 2px 0 rgba(0,0,0,.3))"><use href="#i-home"></use></svg></span>
+<span style="font:600 17px/1 var(--sj-font-display);letter-spacing:.04em;color:#FFF6E3;background:var(--sj-grad-wood);border:3px solid var(--sj-wood-900);border-radius:12px;padding:6px 12px 7px;text-shadow:0 2px 0 var(--sj-wood-900)">BERANDA</span>
+</button>
+<button onClick="{{ goBack }}" style="display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer;transition:transform 240ms var(--sj-ease-bounce)" style-hover="transform:scale(1.08)" style-active="transform:scale(.92)">
+<span style="position:relative;width:96px;height:96px;box-sizing:border-box;border-radius:50%;background:var(--sj-grad-btn-blue);border:var(--sj-border-rim);box-shadow:var(--sj-shadow-btn3d-blue),var(--sj-shadow-inner-gloss);display:grid;place-items:center;color:#fff"><span style="position:absolute;left:18%;right:18%;top:7%;height:34%;border-radius:50%;background:var(--sj-grad-gloss);opacity:.75"></span><svg width="48" height="48" style="position:relative;filter:drop-shadow(0 2px 0 rgba(0,0,0,.3))"><use href="#i-left"></use></svg></span>
+<span style="font:600 17px/1 var(--sj-font-display);letter-spacing:.04em;color:#FFF6E3;background:var(--sj-grad-wood);border:3px solid var(--sj-wood-900);border-radius:12px;padding:6px 12px 7px;text-shadow:0 2px 0 var(--sj-wood-900)">KEMBALI</span>
+</button>
+</nav>
+<!-- NavButtons kanan -->
+<nav aria-label="Navigasi kanan" style="position:absolute;right:40px;bottom:18px;display:flex;gap:16px;z-index:9">
+<sc-if value="{{ showNext }}">
+<button onClick="{{ goNext }}" style="display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer;transition:transform 240ms var(--sj-ease-bounce)" style-hover="transform:scale(1.08)" style-active="transform:scale(.92)">
+<span style="position:relative;width:96px;height:96px;box-sizing:border-box;border-radius:50%;background:var(--sj-grad-btn-blue);border:var(--sj-border-rim);box-shadow:var(--sj-shadow-btn3d-blue),var(--sj-shadow-inner-gloss);display:grid;place-items:center;color:#fff"><span style="position:absolute;left:18%;right:18%;top:7%;height:34%;border-radius:50%;background:var(--sj-grad-gloss);opacity:.75"></span><svg width="48" height="48" style="position:relative;filter:drop-shadow(0 2px 0 rgba(0,0,0,.3))"><use href="#i-right"></use></svg></span>
+<span style="font:600 17px/1 var(--sj-font-display);letter-spacing:.04em;color:#FFF6E3;background:var(--sj-grad-wood);border:3px solid var(--sj-wood-900);border-radius:12px;padding:6px 12px 7px;text-shadow:0 2px 0 var(--sj-wood-900)">SELANJUTNYA</span>
+</button>
+</sc-if>
+<button onClick="{{ toggleMute }}" aria-pressed="{{ muted }}" style="display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer;transition:transform 240ms var(--sj-ease-bounce)" style-hover="transform:scale(1.08)" style-active="transform:scale(.92)">
+<span style="position:relative;width:96px;height:96px;box-sizing:border-box;border-radius:50%;background:{{ soundBg }};border:var(--sj-border-rim);box-shadow:0 6px 0 {{ soundSh }},0 10px 18px rgba(0,0,0,.3),var(--sj-shadow-inner-gloss);display:grid;place-items:center;color:#fff"><span style="position:absolute;left:18%;right:18%;top:7%;height:34%;border-radius:50%;background:var(--sj-grad-gloss);opacity:.75"></span><svg width="48" height="48" style="position:relative;filter:drop-shadow(0 2px 0 rgba(0,0,0,.3))"><use href="#{{ soundIcon }}"></use></svg></span>
+<span style="font:600 17px/1 var(--sj-font-display);letter-spacing:.04em;color:#FFF6E3;background:var(--sj-grad-wood);border:3px solid var(--sj-wood-900);border-radius:12px;padding:6px 12px 7px;text-shadow:0 2px 0 var(--sj-wood-900)">{{ soundLabel }}</span>
+</button>
+</nav>
+<!-- PageIndicator -->
+<sc-if value="{{ showIndicator }}">
+<div aria-live="polite" style="position:absolute;left:655px;top:790px;width:290px;height:108px;z-index:8">
+<img src="assets/papan.png" alt="" style="width:100%;height:100%">
+<div style="position:absolute;left:0;right:0;top:26%;bottom:16%;display:flex;align-items:center;justify-content:center;font:700 34px/1 var(--sj-font-display);color:#fff;-webkit-text-stroke:6px var(--sj-wood-900);paint-order:stroke fill;text-shadow:0 3px 0 var(--sj-wood-900)">{{ indicatorText }}</div>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<!-- ================= MODALS ================= -->
+<sc-if value="{{ modalOpen }}">
+<div onClick="{{ closeModal }}" style="position:absolute;inset:0;z-index:50;background:rgba(40,20,4,.55);display:flex;align-items:center;justify-content:center">
+<div role="dialog" aria-modal="true" onClick="{{ stop }}" data-anim="pop" data-anim-key="{{ modal }}" style="position:relative;width:{{ modalW }}px;box-sizing:border-box;background:var(--sj-parchment-100);border:var(--sj-border-panel);border-radius:40px;box-shadow:var(--sj-shadow-panel);padding:78px 44px 38px">
+<div style="position:absolute;inset:12px;border:var(--sj-border-dash);border-radius:30px;pointer-events:none"></div>
+<div style="position:absolute;left:50%;top:-62px;width:400px;height:149px;margin-left:-200px">
+<img src="assets/papan.png" alt="" style="width:100%;height:100%">
+<div style="position:absolute;left:0;right:0;top:26%;bottom:16%;display:flex;align-items:center;justify-content:center;font:700 38px/1 var(--sj-font-display);color:#fff;-webkit-text-stroke:7px var(--sj-wood-900);paint-order:stroke fill;text-shadow:0 3px 0 var(--sj-wood-900)">{{ modalTitle }}</div>
+</div>
+<button onClick="{{ closeModal }}" aria-label="Tutup" style="position:absolute;right:-20px;top:-20px;width:60px;height:60px;border-radius:50%;border:4px solid #fff;background:linear-gradient(180deg,#F26B5E,#D93A2E);box-shadow:0 4px 0 #A8281F;color:#fff;display:grid;place-items:center;cursor:pointer;z-index:2"><svg width="28" height="28"><use href="#i-x"></use></svg></button>
+
+<sc-if value="{{ isDetail }}">
+<div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:22px">
+<div style="width:280px;height:330px;box-sizing:border-box;background:var(--sj-parchment-50);border:4px solid var(--sj-parchment-300);border-radius:30px;box-shadow:var(--sj-shadow-card);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 22px 22px">
+<span style="font:700 26px/1 var(--sj-font-display);color:var(--sj-wood-700);letter-spacing:.06em">{{ det.L }}</span>
+<span style="flex:1;display:flex;align-items:center;font:400 170px/1 var(--sj-font-aksara)">{{ det.a }}</span>
+<span style="width:100%;text-align:center;padding:9px 0 11px;border-radius:16px;background:var(--sj-grad-wood);color:#FFF6E3;font:600 32px/1 var(--sj-font-display);box-shadow:0 3px 0 var(--sj-wood-900)">{{ det.l }}</span>
+</div>
+<p style="margin:0;font:600 20px/1.4 var(--sj-font-body);text-align:center;color:var(--sj-ink-600)">Aksara ke-{{ det.n }} dari 20 · dibaca <b style="color:var(--sj-ink-900)">"{{ det.l }}"</b></p>
+<div style="display:flex;gap:14px">
+<button onClick="{{ speakDet }}" style="display:flex;align-items:center;gap:10px;padding:14px 24px;border-radius:18px;border:3px solid var(--sj-blue-700);background:linear-gradient(180deg,#44A6F2,#1B72C9);box-shadow:0 5px 0 var(--sj-blue-700);color:#fff;font:600 22px/1 var(--sj-font-display);cursor:pointer"><svg width="26" height="26"><use href="#i-sound"></use></svg>Dengarkan</button>
+<button onClick="{{ writeDet }}" style="display:flex;align-items:center;gap:10px;padding:14px 24px;border-radius:18px;border:3px solid var(--sj-orange-700);background:linear-gradient(180deg,#FFC34D,#F29A17);box-shadow:0 5px 0 var(--sj-orange-700);color:#fff;font:600 22px/1 var(--sj-font-display);cursor:pointer"><svg width="26" height="26"><use href="#i-pencil"></use></svg>Latihan Menulis</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isExit }}">
+<div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
+<p style="margin:0;font:700 30px/1.3 var(--sj-font-display)">Yakin ingin keluar dari Evaluasi?</p>
+<p style="margin:0;font:600 21px/1.45 var(--sj-font-body);color:var(--sj-ink-600)">Jawabanmu belum selesai dan tidak akan disimpan.</p>
+<div style="display:flex;gap:16px;margin-top:8px">
+<button onClick="{{ closeModal }}" style="padding:14px 28px;border-radius:18px;border:3px solid var(--sj-blue-700);background:linear-gradient(180deg,#44A6F2,#1B72C9);box-shadow:0 5px 0 var(--sj-blue-700);color:#fff;font:600 23px/1 var(--sj-font-display);cursor:pointer">Tetap di Sini</button>
+<button onClick="{{ confirmExit }}" style="padding:14px 28px;border-radius:18px;border:3px solid #A8281F;background:linear-gradient(180deg,#F26B5E,#D93A2E);box-shadow:0 5px 0 #A8281F;color:#fff;font:600 23px/1 var(--sj-font-display);cursor:pointer">Ya, Keluar</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isSettings }}">
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:column;gap:14px;background:var(--sj-parchment-50);border:3px solid var(--sj-parchment-300);border-radius:24px;padding:18px 22px">
+<div style="display:flex;align-items:center;gap:14px">
+<span style="flex:none;width:52px;height:52px;border-radius:50%;background:var(--sj-grad-btn-blue);box-shadow:0 3px 0 var(--sj-blue-700);color:#fff;display:grid;place-items:center"><svg width="28" height="28"><use href="#i-music"></use></svg></span>
+<div style="flex:1"><div style="font:700 24px/1.2 var(--sj-font-display)">Musik Latar</div><div style="font:600 17px/1.3 var(--sj-font-body);color:var(--sj-ink-600)">Gending Jawa instrumental</div></div>
+<span style="min-width:72px;text-align:center;padding:8px 10px;border-radius:14px;background:var(--sj-grad-wood);color:#FFF6E3;font:700 22px/1 var(--sj-font-display);box-shadow:0 3px 0 var(--sj-wood-900)">{{ bgmVolText }}</span>
+</div>
+<div style="display:flex;align-items:center;gap:14px">
+<button onClick="{{ bgmDown }}" aria-label="Kecilkan musik" style="flex:none;width:48px;height:48px;border-radius:14px;border:3px solid var(--sj-wood-700);background:#FFFBF2;color:var(--sj-wood-700);display:grid;place-items:center;cursor:pointer"><svg width="24" height="24"><use href="#i-mute"></use></svg></button>
+<input type="range" min="0" max="100" step="5" value="{{ bgmVol }}" onChange="{{ setBgmVol }}" aria-label="Volume musik latar" style="flex:1;height:40px;accent-color:#1E7FD8;cursor:pointer">
+<button onClick="{{ bgmUp }}" aria-label="Keraskan musik" style="flex:none;width:48px;height:48px;border-radius:14px;border:3px solid var(--sj-wood-700);background:#FFFBF2;color:var(--sj-wood-700);display:grid;place-items:center;cursor:pointer"><svg width="24" height="24"><use href="#i-sound"></use></svg></button>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:14px;background:var(--sj-parchment-50);border:3px solid var(--sj-parchment-300);border-radius:24px;padding:14px 22px">
+<div style="flex:1"><div style="font:700 24px/1.2 var(--sj-font-display)">Semua Suara</div><div style="font:600 17px/1.3 var(--sj-font-body);color:var(--sj-ink-600)">Musik latar dan bunyi aksara</div></div>
+<button onClick="{{ toggleMute }}" aria-pressed="{{ muted }}" style="height:52px;padding:0 22px;border-radius:16px;border:3px solid {{ muteBtnBd }};background:{{ muteBtnBg }};box-shadow:0 4px 0 {{ muteBtnBd }};color:#fff;font:600 21px/1 var(--sj-font-display);cursor:pointer">{{ muteBtnLabel }}</button>
+</div>
+<button onClick="{{ closeModal }}" style="align-self:center;padding:14px 34px;border-radius:18px;border:3px solid var(--sj-blue-700);background:linear-gradient(180deg,#44A6F2,#1B72C9);box-shadow:0 5px 0 var(--sj-blue-700);color:#fff;font:600 23px/1 var(--sj-font-display);cursor:pointer">Selesai</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ isResult }}">
+<div style="position:relative;display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:center">
+<img src="assets/avatar_cewe_bersimpuh.png" alt="" style="width:240px;margin:-30px 0 -30px -10px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+<div style="display:flex;gap:8px"><sc-for list="{{ evStars }}" as="s" hint-placeholder-count="3"><svg width="76" height="76" style="color:{{ s.c }};filter:drop-shadow(0 4px 0 rgba(0,0,0,.15))"><use href="#i-star"></use></svg></sc-for></div>
+<div style="font:600 22px/1 var(--sj-font-display);color:var(--sj-ink-600)">Nilaimu</div>
+<div style="font:700 110px/1 var(--sj-font-display);color:var(--sj-blue-500);-webkit-text-stroke:10px #fff;paint-order:stroke fill;filter:drop-shadow(0 5px 0 rgba(14,78,143,.3))">{{ evNilai }}</div>
+<div style="font:700 26px/1.25 var(--sj-font-display);color:var(--sj-wood-700)">{{ evMsg }}</div>
+<div style="font:600 19px/1.3 var(--sj-font-body);color:var(--sj-ink-600)">Benar {{ ev.score }} dari 10 soal</div>
+<div style="display:flex;gap:14px;margin-top:8px">
+<button onClick="{{ retryEval }}" style="display:flex;align-items:center;gap:10px;padding:14px 24px;border-radius:18px;border:3px solid var(--sj-orange-700);background:linear-gradient(180deg,#FFC34D,#F29A17);box-shadow:0 5px 0 var(--sj-orange-700);color:#fff;font:600 22px/1 var(--sj-font-display);cursor:pointer"><svg width="24" height="24"><use href="#i-retry"></use></svg>Ulangi</button>
+<button onClick="{{ goCover }}" style="display:flex;align-items:center;gap:10px;padding:14px 24px;border-radius:18px;border:3px solid var(--sj-blue-700);background:linear-gradient(180deg,#44A6F2,#1B72C9);box-shadow:0 5px 0 var(--sj-blue-700);color:#fff;font:600 22px/1 var(--sj-font-display);cursor:pointer"><svg width="24" height="24"><use href="#i-home"></use></svg>Beranda</button>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<!-- Toast -->
+<sc-if value="{{ toast }}">
+<div role="status" data-anim="pop" data-anim-key="{{ toast.id }}" style="position:absolute;left:50%;top:292px;transform:translateX(-50%);z-index:60;pointer-events:none">
+<div style="display:flex;align-items:center;gap:12px;padding:12px 26px 12px 14px;border-radius:999px;background:{{ toastBg }};border:4px solid #fff;box-shadow:0 6px 0 rgba(0,0,0,.18),0 12px 24px rgba(0,0,0,.25);color:#fff;font:700 24px/1 var(--sj-font-display);white-space:nowrap;text-shadow:0 2px 0 rgba(0,0,0,.2)">
+<span style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.25);display:grid;place-items:center"><svg width="26" height="26"><use href="#{{ toastIcon }}"></use></svg></span>{{ toast.text }}
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;cover&quot;,&quot;materi&quot;,&quot;aksara&quot;,&quot;tulis&quot;,&quot;sandhangan&quot;,&quot;kuis&quot;,&quot;permainan&quot;,&quot;evaluasi&quot;,&quot;hasil&quot;,&quot;bantuan&quot;],&quot;default&quot;:&quot;cover&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Prototipe&quot;},&quot;showCharacters&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Prototipe&quot;},&quot;reducedMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Aksesibilitas&quot;}}">
+const AK = [['ha','ꦲ'],['na','ꦤ'],['ca','ꦕ'],['ra','ꦫ'],['ka','ꦏ'],['da','ꦢ'],['ta','ꦠ'],['sa','ꦱ'],['wa','ꦮ'],['la','ꦭ'],['pa','ꦥ'],['dha','ꦝ'],['ja','ꦗ'],['ya','ꦪ'],['nya','ꦚ'],['ma','ꦩ'],['ga','ꦒ'],['ba','ꦧ'],['tha','ꦛ'],['nga','ꦔ']].map(([l,a],i)=>({l,a,i,L:l.toUpperCase(),n:i+1}));
+const SH = [
+  {n:'Wulu',b:'i',s:'ꦏꦶ',sl:'ki',w:'ꦏꦭꦶ',wl:'kali'},
+  {n:'Suku',b:'u',s:'ꦏꦸ',sl:'ku',w:'ꦧꦸꦏꦸ',wl:'buku'},
+  {n:'Taling',b:'é',s:'ꦏꦺ',sl:'ké',w:'ꦱꦠꦺ',wl:'saté'},
+  {n:'Pepet',b:'ê',s:'ꦏꦼ',sl:'kê',w:'ꦱꦼꦒ',wl:'sêga'},
+  {n:'Taling Tarung',b:'o',s:'ꦏꦺꦴ',sl:'ko',w:'ꦭꦺꦴꦫꦺꦴ',wl:'loro'},
+  {n:'Layar',b:'r',s:'ꦏꦂ',sl:'kar',w:'ꦥꦱꦂ',wl:'pasar'},
+  {n:'Wignyan',b:'h',s:'ꦏꦃ',sl:'kah',w:'ꦒꦗꦃ',wl:'gajah'},
+  {n:'Cecak',b:'ng',s:'ꦏꦁ',sl:'kang',w:'ꦧꦮꦁ',wl:'bawang'},
+  {n:'Pangkon',b:'mati',s:'ꦏ꧀',sl:'k',w:'ꦮꦶꦠ꧀',wl:'wit'},
+  {n:'Cakra',b:'ra',s:'ꦏꦿ',sl:'kra',w:'ꦏꦿꦠꦺꦴꦤ꧀',wl:'kraton'},
+];
+const MENU = [
+  {id:'cover',label:'Beranda',icon:'i-home',c1:'#4F8FF0',c2:'#1F5BC4'},
+  {id:'materi',label:'Materi',icon:'i-book',c1:'#5CC266',c2:'#2E8A3A',d:'Membaca sejarah dan pengenalan aksara Jawa.'},
+  {id:'aksara',label:'Aksara Jawa',glyph:'ꦲꦤ',c1:'#FF9A45',c2:'#E0620F',d:'Melihat 20 aksara. Ketuk aksara untuk mendengar bunyinya.'},
+  {id:'sandhangan',label:'Sandhangan',icon:'i-sandh',c1:'#9A6BE0',c2:'#6A3DB8',d:'Mengenal tanda pengubah bunyi, seperti wulu dan suku.'},
+  {id:'latihan',label:'Latihan',icon:'i-pencil',c1:'#4FB0F5',c2:'#1F7CD0',d:'Berlatih menulis aksara dan menebak aksara.'},
+  {id:'permainan',label:'Permainan',icon:'i-game',c1:'#F0689A',c2:'#C8305F',d:'Mencocokkan kartu aksara dengan bacaan latinnya.'},
+  {id:'evaluasi',label:'Evaluasi',icon:'i-clip',c1:'#35BBA5',c2:'#17806F',d:'Mengerjakan 10 soal lalu melihat nilaimu.'},
+  {id:'bantuan',label:'Bantuan',icon:'i-help',c1:'#FFC23D',c2:'#E0900A',d:'Membaca panduan cara memakai aplikasi.'},
+];
+const LOGO = [['S','#F07A1E',-4],['I','#F5B400',3],['A','#F2A516',-2],['K','#8A4B1F',4],['J','#7A4CC9',-3],['A','#2D6FD6',2],['D','#E0463A',-4],['A','#3FA34D',3]];
+const CARAKAN = [
+  {a:'ꦲꦤꦕꦫꦏ',l:'ha na ca ra ka',m:'Ada dua utusan'},
+  {a:'ꦢꦠꦱꦮꦭ',l:'da ta sa wa la',m:'Mereka saling bertengkar'},
+  {a:'ꦥꦝꦗꦪꦚ',l:'pa dha ja ya nya',m:'Keduanya sama-sama sakti'},
+  {a:'ꦩꦒꦧꦛꦔ',l:'ma ga ba tha nga',m:'Akhirnya keduanya gugur'},
+];
+const TITLES = {materi:'MATERI',aksara:'AKSARA JAWA',sandhangan:'SANDHANGAN',latihan:'LATIHAN',permainan:'PERMAINAN',evaluasi:'EVALUASI',bantuan:'BANTUAN'};
+const PEN = [{id:'tipis',w:10,d:8},{id:'sedang',w:20,d:15},{id:'tebal',w:32,d:22}];
+const BLUE = 'radial-gradient(circle at 50% 28%,#7FD0FF 0%,#2B92E8 45%,#1567C0 100%)';
+const ORANGE = 'radial-gradient(circle at 50% 28%,#FFE27A 0%,#F5A623 50%,#D97A08 100%)';
+const GREY = 'radial-gradient(circle at 50% 28%,#C9D3DD 0%,#8C9AA8 55%,#66737F 100%)';
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const IDX = AK.map(x => x.i);
+const mkQ = (n, mixed) => shuffle(IDX).slice(0, n).map((t, k) => ({ t, type: mixed && k % 2 ? 'l2a' : 'a2l', opts: shuffle([t, ...shuffle(IDX.filter(i => i !== t)).slice(0, 3)]) }));
+const newKq = () => ({ qs: mkQ(5), i: 0, picked: null, wrong: [], score: 0, done: false });
+const newEv = () => ({ qs: mkQ(10, true), i: 0, sel: null, checked: false, score: 0 });
+const newGame = () => { const ps = shuffle(IDX).slice(0, 6); return { cards: shuffle(ps.flatMap(p => [{ p, k: 'a' }, { p, k: 'l' }])).map((c, id) => ({ ...c, id })), open: [], matched: [], moves: 0, round: Math.random() }; };
+const OPT_IDLE = { bg: '#FFFBF2', bd: '#D9B77A', fg: '#3B1E0A' };
+const OPT_SEL = { bg: '#E3F2FE', bd: '#1E7FD8', fg: '#0E4E8F' };
+const OPT_OK = { bg: '#DDF3E1', bd: '#2E9E48', fg: '#1D6B30' };
+const OPT_BAD = { bg: '#FBE0DC', bd: '#D93A2E', fg: '#A8281F' };
+
+function startState(sp) {
+  const s = { page: 'cover', mode: 'tulis', modal: null };
+  if (!sp || sp === 'cover') return s;
+  if (sp === 'tulis') return { ...s, page: 'latihan', mode: 'tulis' };
+  if (sp === 'kuis') return { ...s, page: 'latihan', mode: 'kuis' };
+  if (sp === 'hasil') return { ...s, page: 'evaluasi', modal: 'result', ev: { ...newEv(), i: 9, score: 8, checked: true } };
+  return { ...s, page: sp };
+}
+
+class Component extends DCLogic {
+  vpRef = React.createRef(); stageRef = React.createRef(); cvRef = React.createRef();
+  S = []; cur = null; dir = 1; timers = [];
+  state = { scale: 0.5, ti: 4, muted: false, bgmVol: (() => { try { const v = localStorage.getItem('sj_bgmVol'); return v === null ? 40 : +v; } catch (e) { return 40; } })(), di: 0, toast: null, pen: 'sedang', trace: true, intro: 0, strokes: 0,
+    kq: newKq(), ev: newEv(), g: newGame(), ...startState(this.props.startPage) };
+
+  componentDidMount() {
+    this.fit();
+    this.ro = new ResizeObserver(() => this.fit());
+    if (this.vpRef.current) this.ro.observe(this.vpRef.current);
+    this.runAnims();
+    this.initBgm();
+    if (document.fonts) document.fonts.ready.then(() => this.redraw());
+  }
+  componentWillUnmount() { if (this.bgm) this.bgm.pause(); this.unlock && window.removeEventListener('pointerdown', this.unlock); this.ro && this.ro.disconnect(); this.timers.forEach(clearTimeout); }
+  componentDidUpdate(pp, ps) {
+    if (pp.startPage !== this.props.startPage) { this.setState(startState(this.props.startPage)); return; }
+    if (ps.ti !== this.state.ti || ps.page !== this.state.page || ps.mode !== this.state.mode) { this.S = []; if (this.state.strokes) this.setState({ strokes: 0 }); }
+    this.syncBgm(); this.redraw(); this.runAnims();
+  }
+  initBgm() {
+    const a = this.bgm = new Audio('assets/bgm_gending.mp3'); a.loop = true; a.preload = 'auto'; this.syncBgm();
+    this.unlock = () => { this.syncBgm(true); };
+    window.addEventListener('pointerdown', this.unlock);
+    this.syncBgm(true);
+  }
+  syncBgm(tryPlay) {
+    const a = this.bgm; if (!a) return; const v = this.state.muted ? 0 : this.state.bgmVol / 100;
+    a.volume = v;
+    if (v === 0) { if (!a.paused) a.pause(); return; }
+    if (a.paused && (tryPlay || this.bgmStarted)) { const p = a.play(); if (p && p.then) p.then(() => { this.bgmStarted = true; if (this.unlock) { window.removeEventListener('pointerdown', this.unlock); this.unlock = null; } }).catch(() => {}); }
+  }
+  setVol(v) { v = Math.max(0, Math.min(100, Math.round(v))); try { localStorage.setItem('sj_bgmVol', String(v)); } catch (e) {} this.setState({ bgmVol: v }); if (this.bgm && this.bgm.paused) this.later(() => this.syncBgm(true), 0); }
+  later(fn, ms) { const t = setTimeout(fn, ms); this.timers.push(t); return t; }
+  fit() { const v = this.vpRef.current; if (!v) return; const s = Math.min(v.clientWidth / 1600, v.clientHeight / 900); if (Math.abs(s - this.state.scale) > 0.001) this.setState({ scale: s }); }
+  rm() { return !!this.props.reducedMotion || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches); }
+
+  runAnims() {
+    const root = this.stageRef.current; if (!root) return; const rm = this.rm();
+    root.querySelectorAll('[data-anim]').forEach(el => {
+      const key = el.getAttribute('data-anim-key') || '1';
+      if (el._sjKey === key) return; el._sjKey = key;
+      if (el._sjA) { el._sjA.cancel(); el._sjA = null; }
+      if (rm) return;
+      const t = el.getAttribute('data-anim'), d = +(el.getAttribute('data-anim-delay') || 0);
+      const bounce = 'cubic-bezier(.34,1.56,.64,1)', out = 'cubic-bezier(.22,1,.36,1)';
+      const A = {
+        bob: [[{ transform: 'translateY(0)' }, { transform: 'translateY(-10px)' }, { transform: 'translateY(0)' }], { duration: 3200, iterations: Infinity, easing: 'ease-in-out', delay: d }],
+        swing: [[{ transform: 'rotate(-5deg)' }, { transform: 'rotate(3.5deg)' }, { transform: 'rotate(-1.5deg)' }, { transform: 'rotate(0)' }], { duration: 1400, easing: 'ease-out', delay: d }],
+        pop: [[{ transform: 'scale(.6)', opacity: 0 }, { transform: 'scale(1.06)', opacity: 1, offset: .7 }, { transform: 'scale(1)', opacity: 1 }], { duration: 420, easing: bounce, delay: d, fill: 'backwards' }],
+        logo: [[{ transform: 'translateY(-140px) scale(.4)', opacity: 0 }, { transform: 'translateY(0) scale(1.12)', opacity: 1, offset: .6 }, { transform: 'scale(.95)', offset: .8 }, { transform: 'scale(1)', opacity: 1 }], { duration: 800, easing: out, delay: d, fill: 'backwards' }],
+        rise: [[{ transform: 'translateY(24px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 360, easing: out }],
+        slide: [[{ transform: `translateX(${80 * this.dir}px)`, opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 360, easing: out }],
+      }[t];
+      if (A && el.animate) el._sjA = el.animate(A[0], A[1]);
+    });
+  }
+  shake(el) { if (!el || this.rm() || !el.animate) return; el.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-12px)' }, { transform: 'translateX(10px)' }, { transform: 'translateX(-7px)' }, { transform: 'translateX(4px)' }, { transform: 'translateX(0)' }], { duration: 420, easing: 'ease-in-out' }); }
+  burst(el) {
+    const st = this.stageRef.current; if (!el || !st || this.rm()) return;
+    const r = el.getBoundingClientRect(), sr = st.getBoundingClientRect(), k = this.state.scale || 1;
+    const cx = (r.left + r.width / 2 - sr.left) / k, cy = (r.top + r.height / 2 - sr.top) / k;
+    const cols = ['#FFD23F', '#F29A17', '#E0457B', '#2B92E8', '#3FA34D'];
+    for (let i = 0; i < 14; i++) {
+      const s = document.createElement('div'), star = i % 2 === 0, sz = star ? 30 : 14, c = cols[i % cols.length];
+      s.innerHTML = star ? `<svg width="${sz}" height="${sz}" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.1 6.4 20l1.1-6.2L3 9.4l6.2-.9z" fill="${c}" stroke="#fff" stroke-width="1.5"/></svg>` : '';
+      s.style.cssText = `position:absolute;left:${cx - sz / 2}px;top:${cy - sz / 2}px;width:${sz}px;height:${sz}px;z-index:80;pointer-events:none;${star ? '' : `border-radius:3px;background:${c}`}`;
+      st.appendChild(s);
+      const ang = (i / 14) * Math.PI * 2 + Math.random() * .4, dist = 110 + Math.random() * 90;
+      const a = s.animate([{ transform: 'translate(0,0) scale(.3) rotate(0)', opacity: 1 }, { transform: `translate(${Math.cos(ang) * dist}px,${Math.sin(ang) * dist}px) scale(1) rotate(${200 + Math.random() * 160}deg)`, opacity: 0 }], { duration: 800 + Math.random() * 300, easing: 'cubic-bezier(.22,1,.36,1)' });
+      a.onfinish = () => s.remove();
+    }
+  }
+  speak(t) {
+    if (this.state.muted || !window.speechSynthesis) return;
+    try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'id-ID'; u.rate = .8; speechSynthesis.speak(u); } catch (e) {}
+  }
+  toast(text, tone) { clearTimeout(this.tt); this.setState({ toast: { text, tone, id: String(Date.now()) } }); this.tt = this.later(() => this.setState({ toast: null }), 2200); }
+
+  go(page, mode) {
+    const s = { page, modal: null };
+    if (mode) s.mode = mode;
+    if (page === 'evaluasi') s.ev = newEv();
+    if (page === 'permainan' && this.state.g.matched.length === 12) s.g = newGame();
+    if (page === 'latihan' && this.state.kq.done) s.kq = newKq();
+    if (page === 'cover') s.intro = this.state.intro + 1;
+    this.dir = 1; this.setState(s);
+  }
+  evBusy() { const e = this.state.ev; return this.state.page === 'evaluasi' && !this.state.modal && (e.i > 0 || e.sel !== null); }
+  setTi(ti, dir) { this.dir = dir; this.setState({ ti }); }
+
+  // canvas
+  pt(e) { const c = this.cvRef.current, r = c.getBoundingClientRect(); return [(e.clientX - r.left) * c.width / r.width, (e.clientY - r.top) * c.height / r.height]; }
+  redraw() {
+    const c = this.cvRef.current; if (!c) return; const x = c.getContext('2d');
+    x.clearRect(0, 0, c.width, c.height); x.lineCap = 'round'; x.lineJoin = 'round'; x.strokeStyle = '#3B1E0A';
+    for (const s of this.S) { x.lineWidth = s.w; x.beginPath(); s.p.forEach(([a, b], k) => k ? x.lineTo(a, b) : x.moveTo(a, b)); if (s.p.length === 1) x.lineTo(s.p[0][0] + .1, s.p[0][1]); x.stroke(); }
+  }
+
+  renderVals() {
+    const st = this.state, p = st.page, isF = p !== 'cover';
+    const isTulis = p === 'latihan' && st.mode === 'tulis', isKuis = p === 'latihan' && st.mode === 'kuis';
+    const cur = AK[st.ti];
+    // kuis
+    const kq = st.kq, kqQ = kq.qs[Math.min(kq.i, 4)];
+    const kqOpts = kqQ.opts.map(o => {
+      const ok = kq.picked === o, bad = kq.wrong.includes(o), sty = ok ? OPT_OK : bad ? OPT_BAD : OPT_IDLE;
+      return { ...sty, text: AK[o].l, ok, bad, on: e => {
+        if (kq.picked !== null) return; const el = e.currentTarget;
+        if (o === kqQ.t) {
+          this.burst(el); this.speak(AK[o].l); this.toast('Hebat! Jawabanmu benar', 'success');
+          this.setState(s => ({ kq: { ...s.kq, picked: o, score: s.kq.score + (s.kq.wrong.length ? 0 : 1) } }));
+          this.later(() => { this.dir = 1; this.setState(s => s.kq.i >= 4 ? { kq: { ...s.kq, done: true } } : { kq: { ...s.kq, i: s.kq.i + 1, picked: null, wrong: [] } }); }, 1300);
+        } else { this.shake(el); this.toast('Belum tepat, coba lagi ya!', 'error'); this.setState(s => ({ kq: { ...s.kq, wrong: s.kq.wrong.includes(o) ? s.kq.wrong : [...s.kq.wrong, o] } })); }
+      } };
+    });
+    const kqFb = kq.picked !== null ? { ...OPT_OK, text: `Benar! Ini aksara "${AK[kqQ.t].l}".` } : kq.wrong.length ? { ...OPT_BAD, text: 'Coba lagi! Perhatikan bentuk aksaranya.' } : { bg: '#F3E2BE', fg: '#6B4A2E', text: 'Ketuk bacaan yang cocok dengan aksara di kiri.' };
+    const stars = n => [0, 1, 2].map(i => ({ c: i < n ? '#F5B400' : '#E3D3B3' }));
+    // eval
+    const ev = st.ev, evQ = ev.qs[ev.i], evCorrect = ev.checked && ev.sel === evQ.t;
+    const evOpts = evQ.opts.map(o => {
+      let sty = OPT_IDLE, op = 1, ok = false, bad = false;
+      if (!ev.checked) { if (ev.sel === o) sty = OPT_SEL; }
+      else if (o === evQ.t) { sty = OPT_OK; ok = true; }
+      else if (o === ev.sel) { sty = OPT_BAD; bad = true; }
+      else op = .55;
+      const isA = evQ.type === 'l2a';
+      return { ...sty, op, ok, bad, v: o, sel: ev.sel === o, isA, isL: !isA, text: isA ? AK[o].a : AK[o].l, on: () => { if (!ev.checked) this.setState(s => ({ ev: { ...s.ev, sel: o } })); } };
+    });
+    const evNilai = ev.score * 10, evStarN = ev.score >= 8 ? 3 : ev.score >= 6 ? 2 : ev.score >= 1 ? 1 : 0;
+    const evAction = () => {
+      if (!ev.checked) {
+        if (ev.sel === null) return;
+        const el = this.stageRef.current && this.stageRef.current.querySelector(`[data-opt="${ev.sel}"]`);
+        if (ev.sel === evQ.t) { this.burst(el); this.speak(AK[evQ.t].l); } else this.shake(el);
+        this.setState(s => ({ ev: { ...s.ev, checked: true, score: s.ev.score + (s.ev.sel === evQ.t ? 1 : 0) } }));
+      } else if (ev.i >= 9) { this.setState({ modal: 'result' }); this.later(() => this.burst(this.stageRef.current && this.stageRef.current.querySelector('[role=dialog]')), 300); }
+      else { this.dir = 1; this.setState(s => ({ ev: { ...s.ev, i: s.ev.i + 1, sel: null, checked: false } })); }
+    };
+    const evBtn = !ev.checked ? { label: 'Cek Jawaban', icon: 'i-check', bg: 'linear-gradient(180deg,#44A6F2,#1B72C9)', bd: '#0E4E8F', op: ev.sel === null ? .5 : 1 }
+      : { label: ev.i >= 9 ? 'Lihat Hasil' : 'Soal Berikutnya', icon: ev.i >= 9 ? 'i-trophy' : 'i-right', bg: 'linear-gradient(180deg,#FFC34D,#F29A17)', bd: '#B8650A', op: 1 };
+    const evFb = !ev.checked ? { bg: '#F3E2BE', fg: '#6B4A2E', text: ev.sel === null ? 'Pilih salah satu jawaban.' : 'Sudah yakin? Tekan Cek Jawaban.' }
+      : evCorrect ? { ...OPT_OK, text: 'Benar! Hebat sekali.' } : { ...OPT_BAD, text: `Kurang tepat. Jawabannya "${AK[evQ.t].l}".` };
+    // game
+    const g = st.g;
+    const cards = g.cards.map(c => {
+      const done = g.matched.includes(c.id), open = g.open.includes(c.id), face = done || open;
+      const sty = done ? { bg: '#DDF3E1', bd: '#2E9E48', sh: '#2E9E48' } : open ? { bg: '#FFFBF2', bd: '#1E7FD8', sh: '#0E4E8F' } : { bg: 'linear-gradient(180deg,#B06A33,#7E4520)', bd: '#4A230C', sh: '#4A230C' };
+      return { ...sty, done, back: !face, showA: face && c.k === 'a', showL: face && c.k === 'l', text: c.k === 'a' ? AK[c.p].a : AK[c.p].l, key: `${g.round}-${c.id}-${face ? 1 : 0}`, aria: face ? `Kartu ${AK[c.p].l}` : 'Kartu tertutup', on: e => {
+        const s0 = this.state.g; if (done || open || s0.open.length >= 2) return;
+        const el = e.currentTarget, openN = [...s0.open, c.id];
+        if (openN.length < 2) { this.setState({ g: { ...s0, open: openN } }); return; }
+        const a = s0.cards[openN[0]], b = s0.cards[openN[1]], moves = s0.moves + 1;
+        if (a.p === b.p) {
+          const matched = [...s0.matched, a.id, b.id]; this.burst(el); this.speak(AK[a.p].l);
+          this.setState({ g: { ...s0, open: [], matched, moves } });
+          if (matched.length === 12) this.later(() => this.toast(`Hebat! Selesai dalam ${moves} langkah`, 'success'), 400);
+        } else { this.setState({ g: { ...s0, open: openN, moves } }); this.later(() => this.setState(s => ({ g: { ...s.g, open: [] } })), 950); }
+      } };
+    });
+    // nav
+    const indicator = isTulis ? `${st.ti + 1} / 20` : isKuis ? (kq.done ? null : `${kq.i + 1} / 5`) : p === 'evaluasi' ? `${ev.i + 1} / 10` : p === 'permainan' ? `${g.matched.length / 2} / 6` : null;
+    const goHome = () => this.evBusy() ? this.setState({ modal: 'exit' }) : this.go('cover');
+    const goBack = () => { if (isTulis && st.ti > 0) return this.setTi(st.ti - 1, -1); goHome(); };
+    const goNext = () => { if (p === 'materi') return this.go('aksara'); if (isTulis) { if (st.ti < 19) this.setTi(st.ti + 1, 1); else this.toast('Hebat! 20 aksara sudah kamu tulis', 'success'); } };
+    const modalMeta = { detail: ['AKSARA', 560], exit: ['KELUAR?', 620], result: ['HASIL', 720], settings: ['PENGATURAN', 620] }[st.modal] || ['', 560];
+    const det = AK[st.di];
+    const toneBg = { success: 'linear-gradient(180deg,#4CC064,#2E9E48)', error: 'linear-gradient(180deg,#F26B5E,#D93A2E)', info: 'linear-gradient(180deg,#44A6F2,#1B72C9)' };
+    const contentKey = [p, st.mode, st.ti, kq.i, kq.done, ev.i].join('-');
+    const screenNum = { cover: '01 Cover', materi: '02 Materi', aksara: '03 Aksara Jawa', sandhangan: '05 Sandhangan', permainan: '07 Permainan', evaluasi: '08 Evaluasi', bantuan: '09 Bantuan' };
+
+    return {
+      vpRef: this.vpRef, stageRef: this.stageRef, cvRef: this.cvRef, scale: st.scale,
+      screenLabel: isTulis ? '04 Latihan Menulis' : isKuis ? '06 Latihan Kuis' : screenNum[p],
+      isCover: p === 'cover', isFeature: isF, page: p, pageTitle: TITLES[p] || '', introKey: 'i' + st.intro,
+      showChars: this.props.showCharacters ?? true,
+      logo: LOGO.map(([t, c, r], i) => ({ t, c, r, delay: 200 + i * 70 })),
+      menu: MENU.map((m, i) => ({ ...m, delay: 1000 + i * 60, on: () => m.id === 'cover' ? this.setState(s => ({ intro: s.intro + 1 })) : this.go(m.id) })),
+      isMateri: p === 'materi', isAksara: p === 'aksara', isSandhangan: p === 'sandhangan', isGame: p === 'permainan', isEval: p === 'evaluasi', isBantuan: p === 'bantuan',
+      isLatihan: p === 'latihan', isTulis, isKuis, contentKey, carakanRows: CARAKAN,
+      aksara: AK.map(t => ({ ...t, delay: t.i * 25, on: () => { this.speak(t.l); this.setState({ modal: 'detail', di: t.i }); } })),
+      sandh: SH.map((s, i) => ({ ...s, delay: i * 40, on: () => this.speak(s.wl) })),
+      cur, speakCur: () => this.speak(cur.l),
+      trace: st.trace, toggleTrace: () => this.setState(s => ({ trace: !s.trace })),
+      traceBg: st.trace ? '#1E7FD8' : '#FFFBF2', traceFg: st.trace ? '#fff' : '#0E4E8F',
+      emptyCanvas: st.strokes === 0, toolOpacity: st.strokes === 0 ? .45 : 1,
+      pDown: e => { const c = this.cvRef.current; if (!c) return; e.preventDefault(); try { c.setPointerCapture(e.pointerId); } catch (_) {} this.cur = { w: PEN.find(x => x.id === this.state.pen).w, p: [this.pt(e)] }; this.S.push(this.cur); this.redraw(); if (this.state.strokes === 0) this.setState({ strokes: this.S.length }); },
+      pMove: e => { if (!this.cur) return; this.cur.p.push(this.pt(e)); this.redraw(); },
+      pUp: () => { if (this.cur) { this.cur = null; this.setState({ strokes: this.S.length }); } },
+      undo: () => { this.S.pop(); this.redraw(); this.setState({ strokes: this.S.length }); },
+      clearCv: () => { this.S = []; this.redraw(); this.setState({ strokes: 0 }); },
+      pens: PEN.map(x => ({ ...x, on: st.pen === x.id, bd: st.pen === x.id ? '#1E7FD8' : '#EED7A8', bg: st.pen === x.id ? '#E3F2FE' : '#fff', pick: () => this.setState({ pen: x.id }) })),
+      tabTulisBg: isTulis ? 'linear-gradient(180deg,#B06A33,#7E4520)' : '#FFFBF2', tabTulisFg: isTulis ? '#FFF6E3' : '#6B3715',
+      tabKuisBg: isKuis ? 'linear-gradient(180deg,#B06A33,#7E4520)' : '#FFFBF2', tabKuisFg: isKuis ? '#FFF6E3' : '#6B3715',
+      setTulis: () => { this.dir = -1; this.setState({ mode: 'tulis' }); }, setKuis: () => { this.dir = 1; this.setState(s => ({ mode: 'kuis', kq: s.kq.done ? newKq() : s.kq })); },
+      kq, kqRunning: !kq.done, kqNum: kq.i + 1, kqPct: ((kq.i + (kq.picked !== null ? 1 : 0)) / 5) * 100, kqCur: AK[kqQ.t], kqReveal: kq.picked !== null ? AK[kqQ.t].l : '?', kqOpts, kqFb, kqStars: stars(kq.score >= 5 ? 3 : kq.score >= 3 ? 2 : 1),
+      resetKuis: () => this.setState({ kq: newKq() }), goEval: () => this.go('evaluasi'),
+      ev, evNum: ev.i + 1, evPct: ((ev.i + (ev.checked ? 1 : 0)) / 10) * 100, evOpts, evAction, evBtn, evFb, evDisabled: !ev.checked && ev.sel === null,
+      evCur: { q: evQ.type === 'a2l' ? 'Aksara apakah ini?' : 'Manakah aksara untuk bacaan ini?', stim: evQ.type === 'a2l' ? AK[evQ.t].a : AK[evQ.t].l, stimA: evQ.type === 'a2l', stimL: evQ.type === 'l2a' },
+      evNilai, evStars: stars(evStarN), evMsg: ['Ayo belajar lagi, kamu pasti bisa!', 'Ayo belajar lagi, kamu pasti bisa!', 'Bagus! Terus berlatih ya.', 'Luar biasa! Kamu hebat!'][evStarN],
+      retryEval: () => this.setState({ ev: newEv(), modal: null }),
+      g, cards, resetGame: () => this.setState({ g: newGame() }),
+      navHelp: [
+        { n: 'Beranda', icon: 'i-home', bg: ORANGE, sh: '#B8650A', d: 'Kembali ke halaman utama (cover).' },
+        { n: 'Kembali', icon: 'i-left', bg: BLUE, sh: '#0E4E8F', d: 'Mundur ke halaman atau aksara sebelumnya.' },
+        { n: 'Selanjutnya', icon: 'i-right', bg: BLUE, sh: '#0E4E8F', d: 'Maju ke aksara atau halaman berikutnya.' },
+        { n: 'Suara', icon: 'i-sound', bg: BLUE, sh: '#0E4E8F', d: 'Menyalakan atau mematikan semua suara.' },
+        { n: 'Pengaturan', icon: 'i-gear', bg: ORANGE, sh: '#B8650A', d: 'Mengatur volume musik latar.' },
+        { n: 'Urungkan & Hapus', icon: 'i-undo', bg: BLUE, sh: '#0E4E8F', d: 'Di kanvas: batalkan satu coretan, atau hapus semua.' },
+      ],
+      menuHelp: MENU.filter(m => m.d).map(m => ({ ...m, on: () => this.go(m.id) })),
+      goHome, goBack, goNext, goCover: () => this.go('cover'), goAksara: () => this.go('aksara'),
+      showNext: isTulis || p === 'materi', showIndicator: !!indicator, indicatorText: indicator || '',
+      muted: st.muted, toggleMute: () => { if (!st.muted && window.speechSynthesis) speechSynthesis.cancel(); this.setState(s => ({ muted: !s.muted })); this.toast(st.muted ? 'Suara dinyalakan' : 'Suara dimatikan', 'info'); },
+      soundIcon: st.muted ? 'i-mute' : 'i-sound', soundLabel: st.muted ? 'SENYAP' : 'SUARA', soundBg: st.muted ? GREY : BLUE, soundSh: st.muted ? '#4D5863' : '#0E4E8F',
+      modal: st.modal || '', modalOpen: !!st.modal, isDetail: st.modal === 'detail', isExit: st.modal === 'exit', isResult: st.modal === 'result', isSettings: st.modal === 'settings', openSettings: () => this.setState({ modal: 'settings' }),
+      bgmVol: st.bgmVol, bgmVolText: st.bgmVol + '%', setBgmVol: e => this.setVol(+e.target.value), bgmDown: () => this.setVol(st.bgmVol - 10), bgmUp: () => this.setVol(st.bgmVol + 10),
+      muteBtnLabel: st.muted ? 'Nyalakan' : 'Matikan', muteBtnBg: st.muted ? 'linear-gradient(180deg,#4CC064,#2E9E48)' : 'linear-gradient(180deg,#F26B5E,#D93A2E)', muteBtnBd: st.muted ? '#1D6B30' : '#A8281F',
+      modalTitle: modalMeta[0], modalW: modalMeta[1], closeModal: () => this.setState({ modal: null }), stop: e => e.stopPropagation(),
+      confirmExit: () => this.go('cover'),
+      det, speakDet: () => this.speak(det.l), writeDet: () => { this.dir = 1; this.setState({ page: 'latihan', mode: 'tulis', ti: det.i, modal: null }); },
+      toast: st.toast, toastBg: st.toast ? toneBg[st.toast.tone] : '', toastIcon: st.toast && st.toast.tone === 'error' ? 'i-retry' : st.toast && st.toast.tone === 'info' ? 'i-sound' : 'i-star',
+    };
+  }
+}
+</script>
+</body>
+</html>

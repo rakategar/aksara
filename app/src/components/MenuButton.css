@@ -1,0 +1,8 @@
+.menubtn { width: 128px; height: 150px; padding: 5px; border: 0; border-radius: 26px; background: var(--sj-grad-wood); box-shadow: 0 6px 0 var(--sj-wood-900), 0 12px 20px rgba(0,0,0,.32); cursor: pointer; }
+@media (hover: hover) { .menubtn:hover { transform: translateY(-6px) scale(1.06); } }
+.menubtn:active { transform: translateY(3px) scale(.95); }
+.menubtn-face { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; height: 100%; border-radius: 21px; box-shadow: inset 0 -6px 0 rgba(0,0,0,.18), inset 0 3px 0 rgba(255,255,255,.35); color: #fff; overflow: hidden; }
+.menubtn-gloss { position: absolute; left: 8px; right: 8px; top: 6px; height: 42%; border-radius: 16px 16px 40px 40px; background: var(--sj-grad-gloss); opacity: .55; }
+.menubtn-glyph { position: relative; font: 700 44px/1.3 var(--sj-font-aksara); height: 60px; display: flex; align-items: center; text-shadow: 0 3px 0 rgba(0,0,0,.25); }
+.menubtn-icon { position: relative; filter: drop-shadow(0 3px 0 rgba(0,0,0,.25)); }
+.menubtn-label { position: relative; font: 600 18px/1.05 var(--sj-font-display); text-shadow: 0 2px 0 rgba(0,0,0,.3); text-align: center; padding: 0 4px; }

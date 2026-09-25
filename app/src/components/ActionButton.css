@@ -1,0 +1,12 @@
+.actbtn { display: flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 18px; border: 3px solid; color: #fff; font: 600 22px/1 var(--sj-font-display); cursor: pointer; transition: transform 200ms var(--sj-ease-bounce); }
+.actbtn-primary { border-color: var(--sj-blue-700); background: linear-gradient(180deg,#44A6F2,#1B72C9); box-shadow: 0 5px 0 var(--sj-blue-700); }
+.actbtn-secondary { border-color: var(--sj-orange-700); background: linear-gradient(180deg,#FFC34D,#F29A17); box-shadow: 0 5px 0 var(--sj-orange-700); }
+.actbtn-danger { border-color: #A8281F; background: linear-gradient(180deg,#F26B5E,#D93A2E); box-shadow: 0 5px 0 #A8281F; }
+.actbtn-success { border-color: #1D6B30; background: linear-gradient(180deg,#4CC064,#2E9E48); box-shadow: 0 5px 0 #1D6B30; }
+.actbtn-wood { border-color: var(--sj-wood-700); background: linear-gradient(180deg,#F6E1B8,#E7C58A); box-shadow: 0 4px 0 var(--sj-wood-700); color: var(--sj-ink-900); }
+/* modifikator interaksi */
+@media (hover: hover) { .actbtn.hov:hover { transform: scale(1.04); } }
+.actbtn.hov:active { transform: translateY(3px) scale(.97); }
+.actbtn.press:active { transform: translateY(3px); }
+/* bayangan teks, dipakai di Materi & Evaluasi */
+.actbtn.ts { text-shadow: 0 2px 0 rgba(0,0,0,.2); }

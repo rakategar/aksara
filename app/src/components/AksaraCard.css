@@ -1,0 +1,9 @@
+.akcard { position: absolute; box-sizing: border-box; background: var(--sj-parchment-50); border: 4px solid var(--sj-parchment-300); border-radius: 30px; box-shadow: var(--sj-shadow-card); display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 18px 20px 22px; }
+.akcard-write { width: 240px; height: 330px; }
+.akcard-quiz { width: 290px; height: 390px; }
+.akcard-detail { position: relative; width: 280px; height: 330px; padding: 14px 22px 22px; }
+.akcard-glyph { flex: 1; display: flex; align-items: center; font: 400 170px/1 var(--sj-font-aksara); }
+.akcard-write .akcard-glyph { font-size: 150px; color: var(--sj-ink-900); }
+.akcard-pill { width: 100%; text-align: center; padding: 9px 0 11px; border-radius: 16px; background: var(--sj-grad-wood); color: #FFF6E3; font: 600 32px/1 var(--sj-font-display); box-shadow: 0 3px 0 var(--sj-wood-900); }
+.akcard-speak { position: absolute; right: -18px; top: -18px; width: 52px; height: 52px; border-radius: 50%; border: 4px solid #F7C75A; background: var(--sj-grad-btn-blue); box-shadow: 0 4px 0 var(--sj-blue-700); color: #fff; display: grid; place-items: center; cursor: pointer; --hit: -12px; }
+@media (hover: hover) { .akcard-speak.fx-grow:hover { transform: scale(1.1); } }

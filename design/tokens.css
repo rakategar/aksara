@@ -1,0 +1,114 @@
+/* SIAKJADA — Design Tokens v1.0
+   Fonts (Google Fonts): Fredoka 500–700, Nunito 400–800, Noto Sans Javanese 400–700
+   Semua ukuran dalam px pada stage 1600×900 (16:9). Skala seluruh stage mengikuti viewport. */
+:root {
+  /* ---------- Warna: brand ---------- */
+  --sj-blue-300: #6CC3FF;   /* highlight tombol biru */
+  --sj-blue-500: #1E7FD8;   /* PRIMARY: tombol navigasi, link */
+  --sj-blue-700: #0E4E8F;   /* bayangan/sisi 3D tombol biru */
+  --sj-orange-300: #FFD25E; /* highlight tombol oranye */
+  --sj-orange-500: #F29A17; /* SECONDARY: tombol Beranda, aksen */
+  --sj-orange-700: #B8650A; /* sisi 3D tombol oranye */
+
+  /* ---------- Warna: kayu ---------- */
+  --sj-wood-300: #C98A4B;   /* serat terang, highlight papan */
+  --sj-wood-500: #9A5A2A;   /* papan, pill label */
+  --sj-wood-700: #6B3715;   /* tepi papan, border pill */
+  --sj-wood-900: #4A230C;   /* bayangan kayu, outline teks papan */
+
+  /* ---------- Warna: perkamen & netral ---------- */
+  --sj-parchment-50: #FFFBF2;  /* isi tile/kartu */
+  --sj-parchment-100: #FBF1DC; /* PANEL utama */
+  --sj-parchment-300: #EED7A8; /* border panel, garis putus */
+  --sj-parchment-500: #D9B77A; /* border kuat, grid kanvas */
+  --sj-white: #FFFFFF;
+  --sj-ink-900: #3B1E0A;       /* teks utama di perkamen (kontras 13:1) */
+  --sj-ink-600: #6B4A2E;       /* teks sekunder (kontras 7:1) */
+
+  /* ---------- Warna: alam ---------- */
+  --sj-leaf-500: #3E9B3A;
+  --sj-leaf-700: #25702A;
+
+  /* ---------- Warna: pelangi logo & tombol menu ---------- */
+  --sj-rainbow-1: #F07A1E; /* S  – oranye   / Aksara Jawa */
+  --sj-rainbow-2: #F5B400; /* I  – kuning   / Bantuan */
+  --sj-rainbow-3: #F2A516; /* A  – jingga   */
+  --sj-rainbow-4: #8A4B1F; /* K  – cokelat  */
+  --sj-rainbow-5: #7A4CC9; /* J  – ungu     / Sandhangan */
+  --sj-rainbow-6: #2D6FD6; /* A  – biru     / Beranda */
+  --sj-rainbow-7: #E0463A; /* D  – merah    */
+  --sj-rainbow-8: #3FA34D; /* A  – hijau    / Materi */
+  --sj-menu-latihan: #2F8FE0;
+  --sj-menu-permainan: #E0457B;
+  --sj-menu-evaluasi: #1E9E8A;
+
+  /* ---------- Warna: status ---------- */
+  --sj-success-500: #2E9E48; --sj-success-100: #DDF3E1;
+  --sj-error-500: #D93A2E;   --sj-error-100: #FBE0DC;
+  --sj-warning-500: #F5B400; --sj-warning-100: #FFF1C7;
+  --sj-focus: #FFE14D;       /* cincin fokus keyboard */
+
+  /* ---------- Tipografi ---------- */
+  --sj-font-display: 'Fredoka', 'Baloo 2', system-ui, sans-serif;
+  --sj-font-body: 'Nunito', system-ui, sans-serif;
+  --sj-font-aksara: 'Noto Sans Javanese', 'Javanese Text', sans-serif;
+  --sj-fs-logo: 132px;   --sj-fs-display: 64px;
+  --sj-fs-h1: 48px;      --sj-fs-h2: 36px;     --sj-fs-h3: 28px;
+  --sj-fs-body: 22px;    --sj-fs-caption: 16px; --sj-fs-btn: 18px;
+  --sj-fs-aksara-xl: 200px; --sj-fs-aksara-lg: 120px;
+  --sj-fs-aksara-md: 72px;  --sj-fs-aksara-sm: 44px;
+
+  /* ---------- Spacing (basis 4) ---------- */
+  --sj-space-1: 4px;  --sj-space-2: 8px;  --sj-space-3: 12px; --sj-space-4: 16px;
+  --sj-space-5: 24px; --sj-space-6: 32px; --sj-space-7: 48px; --sj-space-8: 64px;
+
+  /* ---------- Radius ---------- */
+  --sj-radius-sm: 10px; --sj-radius-md: 16px; --sj-radius-lg: 24px;
+  --sj-radius-xl: 44px; --sj-radius-pill: 999px;
+
+  /* ---------- Border ---------- */
+  --sj-border-panel: 6px solid var(--sj-parchment-300);
+  --sj-border-dash: 2px dashed var(--sj-parchment-500);
+  --sj-border-wood: 3px solid var(--sj-wood-900);
+  --sj-border-rim: 5px solid #F7C75A; /* cincin emas tombol bulat */
+
+  /* ---------- Shadow ---------- */
+  --sj-shadow-panel: 0 10px 0 rgba(122,72,24,.22), 0 24px 48px rgba(40,20,0,.28);
+  --sj-shadow-card: 0 4px 0 var(--sj-parchment-300), 0 8px 16px rgba(80,40,0,.10);
+  --sj-shadow-btn3d-blue: 0 6px 0 var(--sj-blue-700), 0 10px 18px rgba(0,0,0,.30);
+  --sj-shadow-btn3d-orange: 0 6px 0 var(--sj-orange-700), 0 10px 18px rgba(0,0,0,.30);
+  --sj-shadow-btn3d-pressed: 0 2px 0 rgba(0,0,0,.35), 0 3px 6px rgba(0,0,0,.25);
+  --sj-shadow-inner-gloss: inset 0 -8px 12px rgba(0,0,0,.18), inset 0 4px 6px rgba(255,255,255,.45);
+  --sj-text-outline-wood: 0 3px 0 var(--sj-wood-900);
+
+  /* ---------- Gradien (efek kayu & 3D) ---------- */
+  --sj-grad-wood: linear-gradient(180deg, #B06A33 0%, #9A5A2A 45%, #7E4520 100%);
+  --sj-grad-btn-blue: radial-gradient(circle at 50% 28%, #7FD0FF 0%, #2B92E8 45%, #1567C0 100%);
+  --sj-grad-btn-orange: radial-gradient(circle at 50% 28%, #FFE27A 0%, #F5A623 50%, #D97A08 100%);
+  --sj-grad-gloss: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,0));
+
+  /* ---------- Motion ---------- */
+  --sj-dur-fast: 120ms; --sj-dur-base: 240ms; --sj-dur-slow: 420ms; --sj-dur-xslow: 900ms;
+  --sj-ease-out: cubic-bezier(.22,1,.36,1);
+  --sj-ease-bounce: cubic-bezier(.34,1.56,.64,1);
+  --sj-ease-inout: cubic-bezier(.65,0,.35,1);
+
+  /* ---------- Ukuran & breakpoint ---------- */
+  --sj-stage-w: 1600px; --sj-stage-h: 900px;
+  --sj-touch-min: 48px;  /* ukuran sentuh minimum SETELAH skala */
+  --sj-navbtn: 96px; --sj-menubtn: 128px;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes sj-bounce-in { 0%{transform:scale(.3) translateY(-60px);opacity:0} 60%{transform:scale(1.08);opacity:1} 80%{transform:scale(.96)} 100%{transform:scale(1)} }
+@keyframes sj-pop-in { 0%{transform:scale(.6);opacity:0} 70%{transform:scale(1.06);opacity:1} 100%{transform:scale(1)} }
+@keyframes sj-bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes sj-swing { 0%{transform:rotate(-4deg)} 30%{transform:rotate(3deg)} 60%{transform:rotate(-1.5deg)} 100%{transform:rotate(0)} }
+@keyframes sj-shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-12px)} 40%{transform:translateX(10px)} 60%{transform:translateX(-7px)} 80%{transform:translateX(4px)} }
+@keyframes sj-slide-in-right { from{transform:translateX(80px);opacity:0} to{transform:none;opacity:1} }
+@keyframes sj-slide-in-left { from{transform:translateX(-80px);opacity:0} to{transform:none;opacity:1} }
+@keyframes sj-star-burst { 0%{transform:translate(0,0) scale(.4) rotate(0);opacity:1} 100%{transform:translate(var(--dx),var(--dy)) scale(1) rotate(180deg);opacity:0} }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
+}

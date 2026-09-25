@@ -1,0 +1,32 @@
+/* Dasar halaman — sama dengan <helmet> prototipe. Sengaja tanpa reset box-sizing global:
+   ukuran di prototipe mengandalkan perilaku bawaan browser. */
+html, body { margin: 0; height: 100%; background: #0f2233; overflow: hidden; overscroll-behavior: none; }
+body { -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: 100%; touch-action: manipulation; }
+#root { position: fixed; inset: 0; }
+a { color: #1E7FD8; }
+a:hover { color: #0E4E8F; }
+button { font-family: inherit; -webkit-user-select: none; user-select: none; }
+button:focus-visible, input:focus-visible { outline: 4px solid #FFE14D; outline-offset: 4px; }
+button:disabled { cursor: default !important; }
+img { -webkit-user-drag: none; user-select: none; }
+
+::-webkit-scrollbar { width: 14px; }
+::-webkit-scrollbar-track { background: #F3E2BE; border-radius: 8px; }
+::-webkit-scrollbar-thumb { background: #B98651; border-radius: 8px; border: 3px solid #F3E2BE; }
+
+/* Perluasan area sentuh tanpa mengubah tampilan (target ≥ 44px setelah skala). */
+/* elemen .sj-hit harus sudah ber-position (relative/absolute). */
+.sj-hit::after { content: ''; position: absolute; inset: var(--hit, -10px); border-radius: inherit; }
+
+/* Interaksi tombol: hover hanya di perangkat ber-pointer agar tidak "nyangkut" setelah diketuk di tablet. */
+.fx-240 { transition: transform 240ms var(--sj-ease-bounce); }
+.fx-200 { transition: transform 200ms var(--sj-ease-bounce); }
+@media (hover: hover) {
+  .fx-grow:hover { transform: scale(1.08); }
+  .fx-grow4:hover { transform: scale(1.04); }
+  .fx-lift:hover { transform: translateY(-4px) scale(1.02); }
+}
+.fx-grow:active { transform: scale(.92); }
+.fx-grow4:active { transform: translateY(3px) scale(.97); }
+.fx-lift:active { transform: translateY(3px) scale(.98); }
+.fx-press:active { transform: translateY(3px); }

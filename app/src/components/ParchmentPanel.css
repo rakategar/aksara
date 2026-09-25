@@ -1,0 +1,2 @@
+.parchment { position: absolute; box-sizing: border-box; background: radial-gradient(ellipse at 30% 15%, #FFF8E8 0%, rgba(255,248,232,0) 60%), var(--sj-parchment-100); border: var(--sj-border-panel); border-radius: var(--sj-radius-xl); box-shadow: var(--sj-shadow-panel); }
+.parchment-stitch { position: absolute; inset: 12px; border: var(--sj-border-dash); border-radius: 34px; pointer-events: none; }

@@ -1,0 +1,2 @@
+.ltabs { position: absolute; right: -6px; top: -60px; display: flex; gap: 8px; z-index: 2; }
+.ltab { position: relative; display: flex; align-items: center; gap: 6px; height: 46px; padding: 0 16px; border-radius: 999px; border: 3px solid var(--sj-wood-700); font: 600 18px/1 var(--sj-font-display); cursor: pointer; --hit: -8px -4px; }

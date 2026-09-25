@@ -1,0 +1,13 @@
+.game { position: absolute; inset: 0; }
+.game-head { display: flex; align-items: center; gap: 16px; height: 56px; }
+.game-title { font: 700 26px/1.1 var(--sj-font-display); color: var(--sj-wood-700); }
+.game-moves { margin-left: auto; padding: 8px 16px; border-radius: 999px; background: var(--sj-parchment-50); border: 3px solid var(--sj-parchment-300); font: 700 19px/1 var(--sj-font-display); }
+.actbtn.game-reset { gap: 8px; height: 48px; padding: 0 18px; border-radius: 16px; font-size: 20px; box-shadow: 0 4px 0 var(--sj-orange-700); }
+.game-grid { position: absolute; left: 0; right: 0; top: 80px; display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 206px; gap: 18px; }
+.mcard { position: relative; border-radius: 22px; border: 4px solid; cursor: pointer; display: grid; place-items: center; transition: transform 200ms var(--sj-ease-bounce); }
+@media (hover: hover) { .mcard:hover { transform: translateY(-4px); } }
+.mcard:active { transform: scale(.96); }
+.mcard-back { width: 70px; height: 70px; border-radius: 50%; background: rgba(255,246,227,.18); border: 3px solid rgba(255,246,227,.5); display: grid; place-items: center; color: #FFF6E3; }
+.mcard-a { font: 400 80px/1.2 var(--sj-font-aksara); color: var(--sj-ink-900); }
+.mcard-l { font: 700 50px/1 var(--sj-font-display); color: var(--sj-blue-700); }
+.mcard-done { position: absolute; right: 10px; top: 10px; width: 32px; height: 32px; border-radius: 50%; background: var(--sj-success-500); color: #fff; display: grid; place-items: center; }

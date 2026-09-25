@@ -1,0 +1,5 @@
+.modal-overlay { position: absolute; inset: 0; z-index: 50; background: rgba(40,20,4,.55); display: flex; align-items: center; justify-content: center; }
+.modal-box { position: relative; box-sizing: border-box; background: var(--sj-parchment-100); border: var(--sj-border-panel); border-radius: 40px; box-shadow: var(--sj-shadow-panel); padding: 78px 44px 38px; }
+.modal-stitch { position: absolute; inset: 12px; border: var(--sj-border-dash); border-radius: 30px; pointer-events: none; }
+.modal-title.ws { left: 50%; top: -62px; margin-left: -200px; }
+.modal-close { position: absolute; right: -20px; top: -20px; width: 60px; height: 60px; border-radius: 50%; border: 4px solid #fff; background: linear-gradient(180deg,#F26B5E,#D93A2E); box-shadow: 0 4px 0 #A8281F; color: #fff; display: grid; place-items: center; cursor: pointer; z-index: 2; }
