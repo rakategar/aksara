@@ -28,8 +28,17 @@ const AKSARA_NAME = /^(h|n|c|r|k|d|t|s|w|l|p|dh|j|y|ny|m|g|b|th|ng)a$/;
  */
 export const javaneseReading = (text: string) => {
   const k = audioKey(text);
-  return AKSARA_NAME.test(k) ? k.slice(0, -1) + 'o' : text;
+  if (!AKSARA_NAME.test(k)) return text;
+  const o = k.slice(0, -1) + 'o';
+  return TTS_SPELLING[o] ?? o;
 };
+
+/**
+ * Ejaan khusus agar mesin TTS bahasa Indonesia melafalkannya benar. Suku kata pendek seperti "co"/"ngo"
+ * dianggap singkatan (dieja "en-ji-o") atau dibaca ala Inggris ("ko"); akhiran "h" yang hampir tak
+ * berbunyi (seperti pada "boleh") membuatnya dibaca sebagai kata biasa.
+ */
+const TTS_SPELLING: Record<string, string> = { co: 'coh', ngo: 'ngoh', nyo: 'nyoh', to: 'tho' } // "to" dibaca "tu" (ala Inggris); samakan dengan tha;
 
 /** Suara bahasa Jawa (jv-ID) bila perangkat punya, jika tidak bahasa Indonesia. */
 function pickVoice(): SpeechSynthesisVoice | undefined {
