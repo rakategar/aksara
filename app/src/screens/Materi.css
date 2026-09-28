@@ -1,5 +1,7 @@
 .materi { position: absolute; inset: 0; overflow-x: hidden; overflow-y: auto; padding-right: 18px; box-sizing: border-box; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 .materi:focus-visible { outline: 4px solid #FFE14D; outline-offset: 4px; }
+.materi-video { position: relative; aspect-ratio: 16 / 9; width: 100%; margin: 0 0 24px; border-radius: 22px; overflow: hidden; background: #000; border: 4px solid var(--sj-wood-700); box-shadow: 0 6px 0 var(--sj-wood-900); }
+.materi-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .materi-h2 { margin: 0 0 10px; font: 700 36px/1.2 var(--sj-font-display); color: var(--sj-wood-700); }
 .materi-h3 { margin: 0 0 10px; font: 700 28px/1.2 var(--sj-font-display); color: var(--sj-wood-700); }
 .materi-p { margin: 0 0 14px; font: 600 22px/1.6 var(--sj-font-body); text-wrap: pretty; }

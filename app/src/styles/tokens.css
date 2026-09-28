@@ -1,5 +1,13 @@
+@font-face {
+  font-family: 'Ngayogyan Jejeg';
+  src: url('../assets/fonts/nyk-ngayogyan-jejeg.woff2') format('woff2');
+  font-weight: 100 900; /* hanya satu bobot: cegah bold palsu */
+  font-style: normal;
+  font-display: block;
+}
+
 /* SIAKJADA — Design Tokens v1.0
-   Fonts (Google Fonts): Fredoka 500–700, Nunito 400–800, Noto Sans Javanese 400–700
+   Fonts (Google Fonts): Fredoka 500–700, Nunito 400–800, nyk Ngayogyan Jejeg (aksara Jawa, file lokal)
    Semua ukuran dalam px pada stage 1600×900 (16:9). Skala seluruh stage mengikuti viewport. */
 :root {
   /* ---------- Warna: brand ---------- */
@@ -51,7 +59,7 @@
   /* ---------- Tipografi ---------- */
   --sj-font-display: 'Fredoka', 'Baloo 2', system-ui, sans-serif;
   --sj-font-body: 'Nunito', system-ui, sans-serif;
-  --sj-font-aksara: 'Noto Sans Javanese', 'Javanese Text', sans-serif;
+  --sj-font-aksara: 'Ngayogyan Jejeg', 'Javanese Text', sans-serif;
   --sj-fs-logo: 132px;   --sj-fs-display: 64px;
   --sj-fs-h1: 48px;      --sj-fs-h2: 36px;     --sj-fs-h3: 28px;
   --sj-fs-body: 22px;    --sj-fs-caption: 16px; --sj-fs-btn: 18px;

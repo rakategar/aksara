@@ -10,6 +10,14 @@ export function Materi() {
   const { st, go } = useApp();
   return (
     <div className="materi" data-screen-label="02 Materi" data-anim="rise" data-anim-key={contentKey(st)} tabIndex={0} aria-label="Materi aksara Jawa">
+      <div className="materi-video">
+        <iframe
+          src="https://www.youtube.com/embed/hPX_32gfk_c?autoplay=1&rel=0&playsinline=1"
+          title="Video pengenalan aksara Jawa"
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+          allowFullScreen
+        />
+      </div>
       <h2 className="materi-h2">Sejarah Singkat Aksara Jawa</h2>
       <p className="materi-p">Aksara Jawa atau <b>Hanacaraka</b> adalah huruf tradisional untuk menulis bahasa Jawa. Aksara ini berkembang dari aksara Kawi, yang berakar dari aksara Brahmi dari India. Dahulu aksara Jawa dipakai untuk menulis naskah, surat, dan tembang di keraton. Sekarang kita masih bisa melihatnya di papan nama jalan, gapura, dan buku pelajaran.</p>
       <div className="materi-callout">

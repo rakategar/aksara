@@ -7,15 +7,30 @@ const UNLOCK_EVENTS = ['pointerdown', 'touchend', 'click', 'keydown'] as const;
  * Musik latar (port initBgm/syncBgm prototipe). Diputar berulang; baru bisa mulai setelah interaksi
  * pertama karena kebijakan autoplay browser.
  */
+/** Satu elemen audio bersama, dibuat sejak awal supaya layar loading bisa menunggu sampai siap diputar. */
+const audio = new Audio(BGM_SRC);
+audio.loop = true;
+audio.preload = 'auto';
+audio.load();
+
+/** Selesai saat BGM sudah cukup ter-buffer untuk diputar tanpa jeda (atau gagal dimuat). */
+export function bgmReady(): Promise<void> {
+  return new Promise((ok) => {
+    if (audio.readyState >= 4) return ok();
+    const done = () => { audio.removeEventListener('canplaythrough', done); audio.removeEventListener('error', done); ok(); };
+    audio.addEventListener('canplaythrough', done);
+    audio.addEventListener('error', done);
+  });
+}
+
+
 export class Bgm {
-  private a = new Audio(BGM_SRC);
+  private a = audio;
   private started = false;
   private vol = 0;
   private unlock: (() => void) | null = null;
 
   constructor() {
-    this.a.loop = true;
-    this.a.preload = 'auto';
     this.unlock = () => this.sync(true);
     for (const ev of UNLOCK_EVENTS) window.addEventListener(ev, this.unlock);
     document.addEventListener('visibilitychange', this.onVisibility);

@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { registerSW } from 'virtual:pwa-register';
 
-// Font di-host sendiri (offline): Fredoka 500–700, Nunito 400–800, Noto Sans Javanese 400–700
+// Font di-host sendiri (offline): Fredoka 500–700, Nunito 400–800; aksara: nyk Ngayogyan Jejeg (tokens.css)
 import '@fontsource/fredoka/500.css';
 import '@fontsource/fredoka/600.css';
 import '@fontsource/fredoka/700.css';
@@ -10,13 +10,12 @@ import '@fontsource/nunito/400.css';
 import '@fontsource/nunito/600.css';
 import '@fontsource/nunito/700.css';
 import '@fontsource/nunito/800.css';
-import '@fontsource/noto-sans-javanese/400.css';
-import '@fontsource/noto-sans-javanese/700.css';
 
 import './styles/tokens.css';
 import './styles/global.css';
 import App from './App';
 import { IMG } from './data/assets';
+import { bgmReady } from './lib/bgm';
 
 registerSW({ immediate: true });
 
@@ -33,10 +32,10 @@ function preload(): Promise<void> {
   });
   const fonts = document.fonts
     ? ['500 1em Fredoka', '600 1em Fredoka', '700 1em Fredoka', '400 1em Nunito', '600 1em Nunito', '700 1em Nunito',
-       '800 1em Nunito', '400 1em "Noto Sans Javanese"', '700 1em "Noto Sans Javanese"']
+       '800 1em Nunito', '400 1em "Ngayogyan Jejeg"']
         .map((f) => document.fonts.load(f, f.includes('Javanese') ? '\uA9B2' : 'Aa').then(() => {}, () => {}))
     : [];
-  const jobs = [...Object.values(IMG).map(img), ...fonts];
+  const jobs = [...Object.values(IMG).map(img), ...fonts, bgmReady()];
   let n = 0;
   const tick = () => {
     const v = Math.round((++n / jobs.length) * 100);
