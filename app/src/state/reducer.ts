@@ -1,5 +1,5 @@
 import type { PageId, PenId } from '../data/menu';
-import { newEv, newGame, newKq, type Eval, type Game, type Kuis } from '../lib/quiz';
+import { EV_TOTAL, newEv, newGame, newKq, type Eval, type Game, type Kuis } from '../lib/quiz';
 
 export type Mode = 'tulis' | 'kuis';
 export type ModalId = 'detail' | 'exit' | 'result' | 'settings';
@@ -137,7 +137,7 @@ export function reducer(st: State, a: Action): State {
       return { ...st, ev: { ...ev, checked: true, score: ev.score + (ev.sel === ev.qs[ev.i].t ? 1 : 0) } };
     }
     case 'evNext':
-      if (!st.ev.checked || st.ev.i >= 9) return st;
+      if (!st.ev.checked || st.ev.i >= EV_TOTAL - 1) return st;
       return { ...st, dir: 1, ev: { ...st.ev, i: st.ev.i + 1, sel: null, checked: false } };
     case 'evResult':
       return { ...st, modal: 'result' };
