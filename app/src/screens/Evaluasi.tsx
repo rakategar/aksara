@@ -3,24 +3,27 @@ import { ActionButton } from '../components/ActionButton';
 import { OptionButton, type OptState } from '../components/OptionButton';
 import { ProgressBar } from '../components/ProgressBar';
 import { AKSARA } from '../data/aksara';
+import { WORDS } from '../data/words';
+import { EV_TOTAL } from '../lib/quiz';
 import { useApp } from '../state/AppContext';
 import { contentKey } from '../state/contentKey';
 import './Quiz.css';
 
-/** 08 Evaluasi — 10 soal campur; Pilih → Cek Jawaban → Soal Berikutnya → Hasil. */
+/** 08 Evaluasi — 10 soal aksara campur + 5 soal kata; Pilih → Cek Jawaban → Soal Berikutnya → Hasil. */
 export function Evaluasi() {
   const { st, dispatch, stageRef, speak, burst, shake, later } = useApp();
   const ev = st.ev;
   const q = ev.qs[ev.i];
   const isA2L = q.type === 'a2l';
   const correct = ev.checked && ev.sel === q.t;
-  const last = ev.i >= 9;
+  const last = ev.i >= EV_TOTAL - 1;
+  const src = q.w ? WORDS : AKSARA;
 
   const action = () => {
     if (!ev.checked) {
       if (ev.sel === null) return;
       const el = stageRef.current?.querySelector(`[data-opt="${ev.sel}"]`) ?? null;
-      if (ev.sel === q.t) { burst(el); speak(AKSARA[q.t].l); } else shake(el);
+      if (ev.sel === q.t) { burst(el); speak(src[q.t].l); } else shake(el);
       dispatch({ type: 'evCheck' });
     } else if (last) {
       dispatch({ type: 'evResult' });
@@ -37,25 +40,26 @@ export function Evaluasi() {
 
   const fb = !ev.checked
     ? { bg: '#F3E2BE', fg: '#6B4A2E', text: ev.sel === null ? 'Pilih salah satu jawaban.' : 'Sudah yakin? Tekan Cek Jawaban.' }
-    : correct ? { bg: '#DDF3E1', fg: '#1D6B30', text: 'Benar! Hebat sekali.' } : { bg: '#FBE0DC', fg: '#A8281F', text: `Kurang tepat. Jawabannya "${AKSARA[q.t].l}".` };
+    : correct ? { bg: '#DDF3E1', fg: '#1D6B30', text: 'Benar! Hebat sekali.' } : { bg: '#FBE0DC', fg: '#A8281F', text: `Kurang tepat. Jawabannya "${src[q.t].l}".` };
 
   const noSel = !ev.checked && ev.sel === null;
 
   return (
     <div className="quiz" data-screen-label="08 Evaluasi" data-anim="slide" data-anim-key={contentKey(st)}>
-      <ProgressBar num={ev.i + 1} total={10} pct={((ev.i + (ev.checked ? 1 : 0)) / 10) * 100} tone="primary" />
+      <ProgressBar num={ev.i + 1} total={EV_TOTAL} pct={((ev.i + (ev.checked ? 1 : 0)) / EV_TOTAL) * 100} tone="primary" />
       <AksaraCard
         size="quiz"
         className="quiz-card"
         style={{ textAlign: 'center' }}
-        top={<span className="quiz-q" style={{ lineHeight: 1.25 }}>{isA2L ? 'Aksara apakah ini?' : 'Manakah aksara untuk bacaan ini?'}</span>}
-        glyph={isA2L ? AKSARA[q.t].a : <span className="ev-stim-l">{AKSARA[q.t].l}</span>}
+        top={<span className="quiz-q" style={{ lineHeight: 1.25 }}>{isA2L ? (q.w ? 'Apa bacaan aksara ini?' : 'Aksara apakah ini?') : 'Manakah aksara untuk bacaan ini?'}</span>}
+        glyphSize={q.w && isA2L ? 96 : undefined}
+        glyph={isA2L ? src[q.t].a : <span className="ev-stim-l" style={q.w ? { fontSize: 72 } : undefined}>{src[q.t].l}</span>}
         bottom={<span className="ev-hint">Pilih satu jawaban, lalu tekan <b>Cek Jawaban</b></span>}
       />
       <div className="quiz-opts">
         {q.opts.map((o) => (
-          <OptionButton key={o} dataOpt={o} state={optState(o)} pressed={ev.sel === o} ariaLabel={isA2L ? undefined : `Aksara ${AKSARA[o].l}`} onClick={() => dispatch({ type: 'evSelect', o })}>
-            {isA2L ? <span className="ev-opt-l">{AKSARA[o].l}</span> : <span className="ev-opt-a">{AKSARA[o].a}</span>}
+          <OptionButton key={o} dataOpt={o} state={optState(o)} pressed={ev.sel === o} ariaLabel={isA2L ? undefined : `Aksara ${src[o].l}`} onClick={() => dispatch({ type: 'evSelect', o })}>
+            {isA2L ? <span className="ev-opt-l" style={q.w ? { fontSize: 40 } : undefined}>{src[o].l}</span> : <span className="ev-opt-a" style={q.w ? { fontSize: 52 } : undefined}>{src[o].a}</span>}
           </OptionButton>
         ))}
       </div>

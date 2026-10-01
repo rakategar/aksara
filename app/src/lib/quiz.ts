@@ -1,4 +1,5 @@
 import { AKSARA_IDX } from '../data/aksara';
+import { WORD_QS } from '../data/words';
 
 export const shuffle = <T,>(arr: readonly T[]): T[] => {
   const a = arr.slice();
@@ -11,7 +12,8 @@ export const shuffle = <T,>(arr: readonly T[]): T[] => {
 
 /** a2l = aksara → latin, l2a = latin → aksara */
 export type QType = 'a2l' | 'l2a';
-export interface Question { t: number; type: QType; opts: number[] }
+/** w = soal kata: t & opts menunjuk ke WORDS, bukan AKSARA. */
+export interface Question { t: number; type: QType; opts: number[]; w?: boolean }
 
 /** n soal acak; bila mixed, soal ganjil berjenis latin → aksara. */
 export const mkQ = (n: number, mixed = false): Question[] =>
@@ -27,7 +29,9 @@ export const newKq = (): Kuis => ({ qs: mkQ(5), i: 0, picked: null, wrong: [], s
 
 /** Evaluasi */
 export interface Eval { qs: Question[]; i: number; sel: number | null; checked: boolean; score: number }
-export const newEv = (): Eval => ({ qs: mkQ(10, true), i: 0, sel: null, checked: false, score: 0 });
+export const EV_TOTAL = 15;
+const wordQs = (): Question[] => WORD_QS.map(({ t, d, type }) => ({ t, type, opts: shuffle([t, ...d]), w: true }));
+export const newEv = (): Eval => ({ qs: [...mkQ(10, true), ...wordQs()], i: 0, sel: null, checked: false, score: 0 });
 
 /** Permainan memori */
 export interface MemCard { p: number; k: 'a' | 'l'; id: number }
@@ -52,7 +56,7 @@ export function flipCard(g: Game, id: number): FlipResult {
   return { g: { ...g, open, moves }, kind: 'miss' };
 }
 
-/** Jumlah bintang: evaluasi (dari 10) */
-export const evalStars = (score: number) => (score >= 8 ? 3 : score >= 6 ? 2 : score >= 1 ? 1 : 0);
+/** Jumlah bintang: evaluasi (dari 15) */
+export const evalStars = (score: number) => (score >= 12 ? 3 : score >= 9 ? 2 : score >= 1 ? 1 : 0);
 /** Jumlah bintang: latihan tebak aksara (dari 5) */
 export const kuisStars = (score: number) => (score >= 5 ? 3 : score >= 3 ? 2 : 1);

@@ -5,7 +5,7 @@ import { Icon } from '../components/Icon';
 import { Modal } from '../components/Modal';
 import { AKSARA } from '../data/aksara';
 import { IMG } from '../data/assets';
-import { evalStars } from '../lib/quiz';
+import { EV_TOTAL, evalStars } from '../lib/quiz';
 import { useApp } from '../state/AppContext';
 import { Stars } from '../screens/Stars';
 import './Modals.css';
@@ -109,7 +109,7 @@ function Result() {
         <div className="md-result-cap">Nilaimu</div>
         <div className="md-result-score">{st.ev.score * 10}</div>
         <div className="md-result-msg">{msg}</div>
-        <div className="md-result-sub">Benar {st.ev.score} dari 10 soal</div>
+        <div className="md-result-sub">Benar {st.ev.score} dari {EV_TOTAL} soal</div>
         <div className="md-row" style={{ gap: 14, marginTop: 8 }}>
           <ActionButton variant="secondary" icon="i-retry" iconSize={24} onClick={() => dispatch({ type: 'evRetry' })}>Ulangi</ActionButton>
           <ActionButton variant="primary" icon="i-home" iconSize={24} onClick={() => go('cover')}>Beranda</ActionButton>

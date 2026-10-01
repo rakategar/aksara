@@ -15,6 +15,7 @@ import { Permainan } from './Permainan';
 import { Evaluasi } from './Evaluasi';
 import { Bantuan } from './Bantuan';
 import './FeatureFrame.css';
+import { EV_TOTAL } from '../lib/quiz';
 
 /** Kerangka semua halaman fitur: papan sekolah, panel perkamen, papan judul, karakter, navigasi, indikator. */
 export function FeatureFrame() {
@@ -26,7 +27,7 @@ export function FeatureFrame() {
 
   const indicator = isTulis ? `${st.ti + 1} / 20`
     : isKuis ? (kq.done ? null : `${kq.i + 1} / 5`)
-    : p === 'evaluasi' ? `${ev.i + 1} / 10`
+    : p === 'evaluasi' ? `${ev.i + 1} / ${EV_TOTAL}`
     : p === 'permainan' ? `${g.matched.length / 2} / 6`
     : null;
 
